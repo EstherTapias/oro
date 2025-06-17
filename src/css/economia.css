@@ -14,8 +14,12 @@ body{
     font-family: monospace;
 }
 
-.header-nave{
+.header-nave, footer{
     background-color: #ffc61b;
+}
+
+footer{
+    padding: 20px;
 }
 
 .header-nave-list{
@@ -40,11 +44,40 @@ body{
 
 main{
     width: 100%;
+    max-width: 800px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
 }
-.main-title{
+.main-title, .gold-reserves-title{
     text-align: center;
     margin-top: 40px;
+}
+
+.intro-text-page{
+    display: flex;
+    margin-top: 40px;
+}
+.intro-text-page h2{
+    align-self: center;
+    margin-right: 120px;
+}
+
+.intro-text-page img{
+    width: 80px;
+}
+
+.intro-text-page div{
+    align-content: center;
+}
+
+.gold-reserves{
+    display: flex;
+    flex-direction: column;
+}
+
+.gold-reserves-char{
+    margin-top: 40px;
+    width: 800px;
+    height: 500px;
 }
