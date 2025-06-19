@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia del Oro</title>
+    <link rel="stylesheet" href="../src/css/historia.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="historia.html">Historia del Oro</a></li>
+                <li><a href="inf-quimica.html">Información Química</a></li>
+                <li><a href="economia.html">El oro y su economía</a></li>
+                <li><a href="medio-ambiente.html">El oro y el medio ambiente</a></li>
+                <li><a href="usos.html">Los usos del oro</a></li>
+                <li><a href="creadoras.html">Creadoras</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="nombre">
+            <h1>¿De dónde viene el nombre del oro?</h1>
+            <p>El nombre "oro" viene del latín <strong>aurum</strong>, que significa "brillo del amanecer". Por eso su símbolo químico es <strong>Au</strong>.</p>
+          </section>
+          <section id="origen">
+            <h2>¿De dónde viene el oro?</h2>
+            <p>El oro se originó en el universo, en explosiones estelares, y llegó a la Tierra mediante meteoritos hace millones de años.</p>
+            <div id="mapaTitulo">              
+              <!-- mapa interactivo con JS -->
+              <h3>🌍 Mapa de países productores de oro</h3>
+            </div>
+            <div id="mapa"></div>
+          </section>
+          <section id="extraccion">
+            <h2>¿Cómo se extrae el oro?</h2>
+            <p>El oro puede extraerse de minas o ríos. Hoy en día, se usan procesos como la cianuración o la amalgamación.</p>
+          </section>
+          <section id="quiz">
+            <h2>🧠 ¿Cuánto sabes sobre el oro?</h2>
+            <div class="pregunta">
+              <p>¿Cuál es el símbolo químico del oro?</p>
+              <button onclick="responder(this, true)">Au</button>
+              <button onclick="responder(this, false)">Ag</button>
+              <button onclick="responder(this, false)">Or</button>
+            </div>
+            <div class="pregunta">
+              <p>¿En qué país se produce más oro actualmente?</p>
+              <button onclick="responder(this, true)">China</button>
+              <button onclick="responder(this, false)">Sudáfrica</button>
+              <button onclick="responder(this, false)">Brasil</button>
+            </div>
+            <p id="resultado"></p>
+          </section>
+    </main>
+    <footer>
+        <p>Proyecto realizado por el grupo 4 de Factoría Bootcamp FullStack+DevOps © 2025</p>
+    </footer>
+    
+    <script src="../src/js/historia.js"></script>
+        
+    
+</body>
+</html>
