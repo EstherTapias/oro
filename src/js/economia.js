@@ -1,28 +1,78 @@
-google.charts.load('current', {'packages':['bar']});
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart(params) {
-    var data = new google.visualization.arrayToDataTable([
-        ['País', 'Toneladas'],
-        ['Estados Unidos', 8133],
-        ['Alemania', 3352]
-    ]);
-    var options = {
-        chart:{
-            //aqui é referente a tudo que se pode adicionar de informacoes no grafico, como legenda, titulo, etc
-        },
-        vAxis: {
-            gridlines: {
-                color: '#fff'
-            }
-        },
-        chartArea:{
-            backgroundColor: '#fed'
-        },
-        backgroundColor: '#fcc',
-        colors: ['#6a0dad']
-    }
-    var chart = new google.charts.Bar(document.getElementById('gold-reserves-char'));
-    console.log(chart);
-    chart.draw(data, google.charts.Bar.convertOptions(options));
+function changeStatusYes(){
+  statusChart = document.querySelector(".chart-visibility");
+  if (statusChart.classList.contains("chart-hide")) {
+    statusChart.classList.remove("chart-hide");
+    statusChart.classList.add("chart-show");
+  }
 }
+
+function changeStatusNo(){
+  statusChart = document.querySelector(".chart-visibility");
+  if (statusChart.classList.contains("chart-show")) {
+    statusChart.classList.remove("chart-show");
+    statusChart.classList.add("chart-hide");
+  }
+}
+const btnYes = document.getElementById("btn-yes");
+btnYes.addEventListener("click", changeStatusYes);
+const btnNo = document.getElementById("btn-no");
+btnNo.addEventListener("click", changeStatusNo);
+
+const dateReserve = {
+  countries: ['Estados Unidos', 'Alemania', 'Itália', 'Portugal', 'Espanha'],
+  tons: [8133, 3351, 2452, 383, 282]
+};
+
+const contenador = document.getElementById("gold-reserves-chart");
+new Chart(contenador, 
+  {
+    type: 'bar',
+    data: {
+        labels: dateReserve.countries,
+        datasets: [{
+          label: 'Toneladas',
+          data: dateReserve.tons,
+          borderWidth: 1,
+          backgroundColor: '#ffc61b' 
+        }],
+    },
+    options: {
+      plugins:{
+        datalabels:{
+          anchor: 'end', 
+          align: 'end',
+          color: 'black',
+          font: {
+              weight: 'bold'
+          },
+          formatter: function(value) {
+              return value;
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero:true,
+          max: 10000, 
+          grid: {
+            display: false
+          }
+        }
+      }
+    },
+    plugins: [ChartDataLabels],
+});
+
+
+const imgChest = document.getElementById('chest-img');
+
+const images = ['../public/img/chestclose.svg', '../public/img/chestopen.svg'];
+let currentPhotoIndex = 0;
+
+setInterval(() => {
+  currentPhotoIndex = currentPhotoIndex + 1;
+  if (currentPhotoIndex >= images.length) {
+    currentPhotoIndex = 0;
+  }
+  imgChest.src = images[currentPhotoIndex];
+}, 2000);

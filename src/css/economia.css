@@ -1,84 +1,139 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-a{
+
+a {
     text-decoration: none;
 }
-body{
+
+body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100dvh;
     background-color: #fff5d8;
-    font-family: monospace;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.header-nave, footer{
+.header-nave,
+footer {
     background-color: #ffc61b;
 }
 
-footer{
+footer {
     padding: 20px;
 }
 
-.header-nave-list{
+.header-nave-list {
     display: flex;
     gap: 20px;
     list-style-type: none;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-.header-nave-list li{
+
+.header-nave-list li {
     padding: 20px;
 }
 
-.header-nave-list li a{
+.header-nave-list li a {
     padding: 10px 20px;
     background-color: red;
 }
 
-.header-nave-list li:hover{
+.header-nave-list li:hover {
     background-color: #cc9900;
 }
 
-main{
+main {
     width: 100%;
     max-width: 800px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
 }
-.main-title, .gold-reserves-title{
+
+.main-title,
+.gold-reserves-title {
     text-align: center;
     margin-top: 40px;
 }
 
-.intro-text-page{
+.intro-text-page {
     display: flex;
     margin-top: 40px;
 }
-.intro-text-page h2{
+
+.intro-text-page h2 {
     align-self: center;
     margin-right: 120px;
 }
 
-.intro-text-page img{
-    width: 80px;
+#chest-img {
+    width: 100%;
 }
 
-.intro-text-page div{
+.intro-text-page div {
     align-content: center;
 }
 
-.gold-reserves{
+.container-btn {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 40px;
+    gap: 20px;
+}
+
+#btn-yes {
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #ffc61b;
+    color: #695006;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#btn-yes:hover {
+    background-color: #e6b315;
+}
+
+#btn-no {
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #c4c4c4;
+    text-decoration: none;
+    color: rgb(82, 82, 82);
+    display: inline-block;
+}
+
+#btn-no:hover {
+    background-color: #b6b6b6;
+}
+
+
+.gold-reserves {
     display: flex;
     flex-direction: column;
 }
 
-.gold-reserves-char{
-    margin-top: 40px;
-    width: 800px;
-    height: 500px;
-    box-shadow: 14px 14px 20px 0 rgba(20, 20, 20, 0.3);
+
+.gold-reserves-chart-canvas {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+.chart-hide {
+    visibility: hidden;
+}
+
+.chart-show {
+    visibility: visible;
 }

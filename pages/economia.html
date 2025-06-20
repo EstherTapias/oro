@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/css/economia.css">
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../src/js/economia.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
     <title>Económia del oro</title>
 </head>
+
 <body>
     <header>
         <!-- TODO: Decidir como fazer -->
-         <nav class="header-nave">
+        <nav class="header-nave">
             <ul class="header-nave-list">
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./historia.html">Historia</a></li>
@@ -26,12 +31,22 @@
         <section class="section-coin">
             <h1 class="main-title">La moneda que nunca deja de circular</h1>
             <article class="intro-text-page">
-                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, ex quia repudiandae perferendis quos autem delectus temporibus qui dolorum quibusdam, natus suscipit quaerat deserunt, facilis libero et earum doloremque error!</h2>
-                <div><img src="../public/img/goldcoinmry.svg" alt="moneda de oro by mariany"></div>
+                <h2>El oro no solo brilla: también guarda valor. Desde las civilizaciones antiguas hasta hoy, ha sido
+                    como un “cofre del tesoro” que nunca pierde su poder.</h2>
+                <div id="coin-chest">
+                    <img id="chest-img" src="../public/img/chestclose.svg" alt="Cofre do Tesouro">
+                </div>
             </article>
             <article class="gold-reserves">
                 <h2 class="gold-reserves-title">Reservas mundiales de oro</h2>
-                <div class="gold-reserves-char" id="gold-reserves-char" >GRAFICOS</div>
+                <h2>Deseas ver las reservas de oros de los países?</h2>
+                <div class="container-btn">
+                    <a id="btn-yes">SÍ</a>
+                    <a id="btn-no">NO</a>
+                </div>
+                <div class="gold-reserves-chart chart-visibility chart-hide">
+                    <canvas class="gold-reserves-chart-canvas" id="gold-reserves-chart"></canvas>
+                </div>
             </article>
             <article class="gold-stroge">
                 <h2>Dónde se guarda el oro</h2>
@@ -46,6 +61,6 @@
         <p>Los derechos reservados</p>
         <!-- TODO: Decidir como fazer -->
     </footer>
-    <script src="../src/js/economia.js"></script>
 </body>
+
 </html>
