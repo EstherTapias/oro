@@ -5,15 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/css/economia.css">
+    <!--Font family-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
     <script src="../src/js/economia.js" defer></script>
+    <!--Chart-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/patternomaly"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+    <!--Particles background-->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <title>Económia del oro</title>
 </head>
 
 <body>
     <header>
+        <div id="particles-js"></div>
         <!-- TODO: Decidir como fazer -->
         <nav class="header-nave">
             <ul class="header-nave-list">
@@ -29,7 +35,7 @@
     </header>
     <main>
         <section class="section-coin">
-            <h1 class="main-title">La moneda que nunca deja de circular</h1>
+            <h1 class="titles">La moneda que nunca deja de circular</h1>
             <article class="intro-text-page">
                 <h2>El oro no solo brilla: también guarda valor. Desde las civilizaciones antiguas hasta hoy, ha sido
                     como un “cofre del tesoro” que nunca pierde su poder.</h2>
@@ -38,8 +44,8 @@
                 </div>
             </article>
             <article class="gold-reserves">
-                <h2 class="gold-reserves-title">Reservas mundiales de oro</h2>
-                <h2>Deseas ver las reservas de oros de los países?</h2>
+                <h1 class="titles">Reservas mundiales de oro</h1>
+                <h2 class="subtitles">Deseas ver las reservas de oros de los países?</h2>
                 <div class="container-btn">
                     <a id="btn-yes">SÍ</a>
                     <a id="btn-no">NO</a>
@@ -47,9 +53,15 @@
                 <div class="gold-reserves-chart chart-visibility chart-hide">
                     <canvas class="gold-reserves-chart-canvas" id="gold-reserves-chart"></canvas>
                 </div>
+                <div id="video-container" class="chart-hide">
+                    <video id="noVideo" controls>
+                        <source src="../public/videos/video-final-cred.mp4" type="video/mp4">
+                        Su navegar no suporta el vídeo.
+                    </video>
+                </div>
             </article>
             <article class="gold-stroge">
-                <h2>Dónde se guarda el oro</h2>
+                <h2 class="subtitles">Dónde se guarda el oro</h2>
                 <div class="">Cards</div>
             </article>
             <article class="section-game">
