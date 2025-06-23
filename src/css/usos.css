@@ -19,7 +19,7 @@ div {
     align-items: center;
 }
 
-.btnSun {
+#btnSun {
     width: 100;
     height: 90%;
 }
@@ -27,4 +27,8 @@ div {
 .img-not-visible {
     display: none;
     height: 100%;
+}
+
+.img-visible {
+    display: block;
 }
