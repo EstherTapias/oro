@@ -23,3 +23,8 @@ div {
     width: 100;
     height: 90%;
 }
+
+.img-not-visible {
+    display: none;
+    height: 100%;
+}
