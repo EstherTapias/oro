@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Mapa
+  // --- Mapa Leaflet ---
   const mapa = L.map("mapa").setView([20, 0], 2);
+
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: 'Mapa: OpenStreetMap'
   }).addTo(mapa);
@@ -23,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
     mapa.invalidateSize();
   });
 
-  // Quiz
+  // --- Quiz ---
+
   const preguntas = [
     {
       pregunta: "¿Cuál es el símbolo químico del oro?",
@@ -53,18 +55,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let pepitas = 0;
   let aciertos = 0;
+
   const pepitasEl = document.getElementById("pepitas");
   const contenedor = document.getElementById("quiz-container");
   const resultado = document.getElementById("resultado");
-  const sonidoCorrecto = new Audio("../pub/assets/correcto.mp3");
-  const sonidoIncorrecto = new Audio("../pub/assets/incorrecto.mp3");
 
+  // Sonidos (usa la ruta correcta para tus mp3)
+  const sonidoCorrecto = new Audio("../public/assets/correct.mp3");
+  const sonidoIncorrecto = new Audio("../public/assets/error.mp3");
+
+  // Mezcla un array (Fisher-Yates sería ideal, pero para quiz está bien)
   function mezclarArray(arr) {
     return arr.sort(() => Math.random() - 0.5);
   }
 
+  // Carga el quiz generando HTML dinámico
   function cargarQuiz() {
     contenedor.innerHTML = "";
+    aciertos = 0; // reset de aciertos
+
     const preguntasAleatorias = mezclarArray(preguntas);
 
     preguntasAleatorias.forEach((q, i) => {
@@ -93,16 +102,17 @@ document.addEventListener("DOMContentLoaded", () => {
     botones.forEach(b => b.disabled = true);
 
     if (correcta) {
-      btn.style.backgroundColor = "#a5d6a7";
+      btn.style.backgroundColor = "#a5d6a7"; // verde claro
       pepitas++;
       aciertos++;
       pepitasEl.innerText = pepitas;
       sonidoCorrecto.play();
     } else {
-      btn.style.backgroundColor = "#ef9a9a";
+      btn.style.backgroundColor = "#ef9a9a"; // rojo claro
       sonidoIncorrecto.play();
     }
 
+    // Verificar si todas las preguntas respondidas
     const respondidas = [...document.querySelectorAll(".pregunta")].filter(p =>
       [...p.querySelectorAll("button")].every(b => b.disabled)
     );
@@ -112,9 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Botón reset quiz
   document.getElementById("btn-reset").addEventListener("click", () => {
     pepitas = 0;
-    aciertos = 0;
     pepitasEl.innerText = "0";
     resultado.innerText = "";
     cargarQuiz();
