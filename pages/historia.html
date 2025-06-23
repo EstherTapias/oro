@@ -24,43 +24,57 @@
         <section id="nombre">
             <h1>¿De dónde viene el nombre del oro?</h1>
             <p>El nombre "oro" viene del latín <strong>aurum</strong>, que significa "brillo del amanecer". Por eso su símbolo químico es <strong>Au</strong>.</p>
-          </section>
-          <section id="origen">
+        </section>
+
+        <section id="origen">
             <h2>¿De dónde viene el oro?</h2>
             <p>El oro se originó en el universo, en explosiones estelares, y llegó a la Tierra mediante meteoritos hace millones de años.</p>
             <div id="mapaTitulo">              
-              <!-- mapa interactivo con JS -->
               <h3>🌍 Mapa de países productores de oro</h3>
+              <button id="btn-expandir-mapa">🔍 Expandir mapa</button>
             </div>
-            <div id="mapa"></div>
-          </section>
-          <section id="extraccion">
+            <div id="mapa" class="mapa-pequeño"></div>
+        </section>
+
+        <section id="extraccion">
             <h2>¿Cómo se extrae el oro?</h2>
             <p>El oro puede extraerse de minas o ríos. Hoy en día, se usan procesos como la cianuración o la amalgamación.</p>
-          </section>
-          <section id="quiz">
+        </section>
+
+        <section id="quiz">
             <h2>🧠 ¿Cuánto sabes sobre el oro?</h2>
+            <p>💰 Pepitas de oro: <span id="pepitas">0</span></p>
+
             <div class="pregunta">
               <p>¿Cuál es el símbolo químico del oro?</p>
               <button onclick="responder(this, true)">Au</button>
               <button onclick="responder(this, false)">Ag</button>
               <button onclick="responder(this, false)">Or</button>
             </div>
+
             <div class="pregunta">
               <p>¿En qué país se produce más oro actualmente?</p>
               <button onclick="responder(this, true)">China</button>
               <button onclick="responder(this, false)">Sudáfrica</button>
               <button onclick="responder(this, false)">Brasil</button>
             </div>
+
+            <div class="pregunta">
+              <p>¿Qué color tiene el oro puro?</p>
+              <button onclick="responder(this, true)">Amarillo</button>
+              <button onclick="responder(this, false)">Plateado</button>
+              <button onclick="responder(this, false)">Rojo</button>
+            </div>
+
             <p id="resultado"></p>
-          </section>
+            <button id="btn-reset">🔄 Reiniciar quiz</button>
+        </section>
     </main>
+
     <footer>
         <p>Proyecto realizado por el grupo 4 de Factoría Bootcamp FullStack+DevOps © 2025</p>
     </footer>
-    
+
     <script src="../src/js/historia.js"></script>
-        
-    
 </body>
 </html>

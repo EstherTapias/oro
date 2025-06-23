@@ -1,0 +1,10 @@
+# Evita subir las dependencias
+node_modules/
+
+# Archivos del entorno de desarrollo
+.DS_Store
+.env
+dist/
+build/
+*.log
+npm-debug.log*
