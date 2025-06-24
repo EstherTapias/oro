@@ -1,0 +1,114 @@
+
+
+
+body {
+    font-family: serif ;
+    font-size: x-large;
+    padding: 0;
+    margin: 0;
+}
+/*TITULO*/
+.tittle {
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*TEXTO TITULO*/
+h1 {
+    font-family: serif;
+    font-size: 50px;
+    color: green;
+    text-align: center;
+    margin-top: 30px;
+}
+/*INTRODUCCIÓN*/
+.muñeco-intro {
+    background-image: url("https://img.freepik.com/fotos-premium/fondo-verde-globo-terraqueo-centro-imagen_832479-5031.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: x-large;
+}
+.img-muñeco {
+    width: 400px;
+    padding: 20px;
+    mix-blend-mode: multiply;
+}
+.extracción {
+    background-color: azure;
+    padding: 100px;
+    font-family: serif;
+    font-size: 20px;
+}
+
+.titulo {
+    color:green;
+    font-size: 30px;
+    font-family: serif;
+}
+
+/*IMPACTOS TITULO*/
+.impactos {
+    background-color: yellow;
+    padding: 20px;
+    font-family: serif;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: green;
+}
+/*TARJETAS IMPACTOS*/
+
+.tarjeta {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    text-align: center;
+    background-color: blueviolet;
+    max-width: 900px;
+    width: 20%;
+    padding: 1rem;
+    font-family: cursive;
+    font-size: medium;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+    margin: 2rem 0.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+
+
+}
+
+.tarjeta img {
+    max-width:100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background-color:aqua;
+    
+}
+.reciclaje-oro {
+    background-color: brown;
+
+
+}
+@media(max-widht:600px) {
+    .tarjeta
+    font-size: small;
+    padding: 1rem;
+}
+tarjeta img {
+    height: auto;
+    max-height: 150px;
+}
