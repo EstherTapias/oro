@@ -66,6 +66,32 @@ button:hover {
   font-size: 1.2em;
   color: #d4af37;
 }
+#zona-juego {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.bloque {
+  width: 60px;
+  height: 60px;
+  background-color: #a1887f;
+  border: 2px solid #5d4037;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.bloque.excavado {
+  background-color: #d7ccc8;
+  cursor: default;
+}
+
+#resultado-rasca {
+  margin-top: 10px;
+  font-style: italic;
+}
+
 
 
   
