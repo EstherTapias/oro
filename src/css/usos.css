@@ -26,9 +26,10 @@ div {
 
 .img-not-visible {
     display: none;
-    height: 100%;
+    height: 50px;
 }
 
 .img-visible {
     display: block;
+    height: 50px;
 }

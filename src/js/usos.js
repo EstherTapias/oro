@@ -1,14 +1,18 @@
-let btnSun = document.getElementById("btnSun");
-btnSun.addEventListener("click", function(eventInfo) 
-{
-    //debugger;
-    let imagenes = document.getElementsByClassName("img-not-visible");
-    imagenes[0].style.display = "block";
-    imagenes[1].style.display = "block";
-    imagenes[2].style.display = "block";
-    imagenes[3].style.display = "block";
-    imagenes[4].style.display = "block";
-    imagenes[5].style.display = "block";
-    imagenes[6].style.display = "block";
-    imagenes[7].style.display = "block";
+btnSun.addEventListener("click", function (eventInfo) {
+    //Busca todas las imágenes que están visibles y no visibles
+    let imagenes = document.querySelectorAll(".img-not-visible, .img-visible");
+
+    //Recorre todas las imágenes encontradas
+    imagenes.forEach(img => {
+        //Si la imagen está oculta...
+        if (img.classList.contains("img-not-visible")) {
+            //La muestra
+            img.classList.remove("img-not-visible");
+            img.classList.add("img-visible");
+        } else {
+            //Si está visible... La oculta
+            img.classList.remove("img-visible");
+            img.classList.add("img-not-visible");
+        }
+    });
 });
