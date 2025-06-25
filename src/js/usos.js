@@ -1,4 +1,4 @@
-btnSun.addEventListener("click", function (eventInfo) {
+sunPic.addEventListener("click", function (eventInfo) {
     //Busca todas las imágenes que están visibles y no visibles
     let imagenes = document.querySelectorAll(".img-not-visible, .img-visible");
 
