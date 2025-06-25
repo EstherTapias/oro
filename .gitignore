@@ -8,3 +8,4 @@ dist/
 build/
 *.log
 npm-debug.log*
+.vscode
