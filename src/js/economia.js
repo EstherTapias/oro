@@ -1,8 +1,11 @@
 const coinSound = new Audio('../public/sounds/cash-register-fake-88639.mp3');
 const videoContainer = document.getElementById('video-container');
-const video = videoContainer.querySelector('video');
+console.log(videoContainer);
+const videoMP4 = document.getElementById('videoMP4');
+console.log(videoMP4);
 function changeStatusYes() {
   statusChart = document.querySelector(".chart-visibility");
+  statusVideo = document.querySelector(".video-visibility");
   if (statusChart.classList.contains("chart-hide")) {
     statusChart.classList.remove("chart-hide");
     statusChart.classList.add("chart-show");
@@ -14,25 +17,34 @@ function changeStatusYes() {
       }
     }, 100);
   }
+  if (statusVideo.classList.contains("video-show")) {
+    statusVideo.classList.remove("video-show");
+    statusVideo.classList.add("video-hide");
+  }
   if (videoContainer) {
     videoContainer.style.display = 'none';
-    if (video) {
-      video.pause();
+    if (videoMP4) {
+      videoMP4.pause();
     }
   }
 }
 
 function changeStatusNo() {
+  statusVideo = document.querySelector(".video-visibility");
   statusChart = document.querySelector(".chart-visibility");
   if (statusChart.classList.contains("chart-show")) {
     statusChart.classList.remove("chart-show");
     statusChart.classList.add("chart-hide");
   }
+  if (statusVideo.classList.contains("video-hide")) {
+    statusVideo.classList.remove("video-hide");
+    statusVideo.classList.add("video-show");
+  }
   if (videoContainer) {
     videoContainer.style.display = 'block';
-    if (video) {
-      video.currentTime = 0;
-      video.play();
+    if (videoMP4) {
+      videoMP4.currentTime = 0;
+      videoMP4.play();
     }
   }
 }
@@ -72,30 +84,44 @@ function renderChart() {
         }],
       },
       options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          datalabels: {
-            anchor: 'end',
-            align: 'end',
-            color: 'black',
-            font: {
-              weight: 'bold'
-            },
-            formatter: function (toneladas) {
-              return toneladas;
-            }
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-            grid: {
-              display: false
-            },
-          }
-        }
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    datalabels: {
+      anchor: 'end',
+      align: 'end',
+      color: 'black',
+      font: {
+        weight: 'bold',
+        size: 16
       },
+      formatter: function (toneladas) {
+        return toneladas;
+      }
+    }
+  },
+  scales: {
+    x: {
+      ticks: {
+        font: {
+          size: 16
+        }
+      }
+    },
+    y: {
+      beginAtZero: true,
+      grid: {
+        display: false
+      },
+      ticks: {
+        stepSize: 500,
+        font:{
+          size: 16
+        }
+      }
+    }
+  }
+},
       plugins: [ChartDataLabels],
     });
 }
@@ -128,7 +154,7 @@ setInterval(() => {
 particlesJS('particles-js', {
   "particles": {
     "number": {
-      "value": 60,
+      "value": 100,
       "density": {
         "enable": true,
         "value_area": 800
@@ -141,8 +167,7 @@ particlesJS('particles-js', {
       "type": "circle"
     },
     "opacity": {
-      "value": 0.5,
-      "random": false
+      "random": true
     },
     "size": {
       "value": 3,
@@ -156,27 +181,5 @@ particlesJS('particles-js', {
       "straight": false,
       "bounce": false
     }
-  },
-  "interactivity": {
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "repulse"
-      },
-      "onclick": {
-        "enable": true,
-        "mode": "push"
-      }
-    },
-    "modes": {
-      "repulse": {
-        "distance": 100,
-        "duration": 0.4
-      },
-      "push": {
-        "particles_nb": 4
-      }
-    }
-  },
-  "retina_detect": true
+  }
 });

@@ -153,6 +153,10 @@ main {
     background-color: #b6b6b6;
 }
 
+.gold-reserves-chart{
+    height: 450px;
+    max-width: 800px;
+}
 
 .gold-reserves-chart-canvas {
     background-color: white;
@@ -170,6 +174,14 @@ main {
     visibility: visible;
 }
 
+.video-hide {
+    display: none;
+}
+
+.video-show {
+    display: flex;
+}
+
 #video-container {
     width: 80%;
     display: flex;
@@ -178,7 +190,7 @@ main {
     margin: 0 auto;
 }
 
-#noVideo {
+#videoMP4 {
     max-width: 100%;
     height: auto;
 }
