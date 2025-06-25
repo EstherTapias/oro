@@ -133,5 +133,62 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarQuiz();
 });
 
+// --- Juego de excavación tipo Minecraft ---
+const zonaJuego = document.getElementById("zona-juego");
+const totalBloques = 20;
+const bloquesConPepitas = new Set();
+
+while (bloquesConPepitas.size < 5) {
+  bloquesConPepitas.add(Math.floor(Math.random() * totalBloques));
+}
+
+for (let i = 0; i < totalBloques; i++) {
+  const bloque = document.createElement("div");
+  bloque.classList.add("bloque");
+  bloque.addEventListener("click", () => excavarBloque(bloque, i));
+  zonaJuego.appendChild(bloque);
+}
+
+function excavarBloque(bloque, index) {
+  if (bloque.classList.contains("excavado")) return;
+  bloque.classList.add("excavado");
+
+  if (bloquesConPepitas.has(index)) {
+    pepitas++;
+    pepitasEl.innerText = pepitas;
+    bloque.textContent = "💰";
+    sonidoCorrecto.play();
+  } else {
+    bloque.textContent = "🪨";
+    sonidoIncorrecto.play();
+  }
+
+  // Activar botón rascar si tenemos suficientes pepitas
+  actualizarBotonRascar();
+}
+
+function actualizarBotonRascar() {
+  document.getElementById("btn-rascar").disabled = pepitas < 3;
+}
+
+// --- Rasca y gana ---
+const curiosidades = [
+  "🔍 El oro es tan maleable que se puede estirar en hilos de nanómetros.",
+  "🏛️ Los antiguos egipcios creían que el oro era carne de los dioses.",
+  "🌡️ El oro no se oxida ni se corroe fácilmente.",
+  "👑 Se han encontrado joyas de oro con más de 4000 años de antigüedad.",
+  "🚀 La NASA usa oro en los trajes espaciales por su capacidad de reflejar radiación."
+];
+
+document.getElementById("btn-rascar").addEventListener("click", () => {
+  if (pepitas >= 3) {
+    pepitas -= 3;
+    pepitasEl.innerText = pepitas;
+    const dato = curiosidades[Math.floor(Math.random() * curiosidades.length)];
+    document.getElementById("resultado-rasca").innerText = dato;
+    actualizarBotonRascar();
+  }
+});
+
 
   
