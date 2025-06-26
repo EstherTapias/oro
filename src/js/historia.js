@@ -61,9 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultado = document.getElementById("resultado");
 
   // Sonidos (usa la ruta correcta para tus mp3)
-  const sonidoCorrecto = new Audio("../public/assets/correct.mp3");
-  const sonidoIncorrecto = new Audio("../public/assets/error.mp3");
-  const sonidoExcavacion = new Audio("../public/assets/dig.mp3");
+  const sonidoCorrecto = new Audio("../public/sounds/correct.mp3");
+  const sonidoIncorrecto = new Audio("../public/sounds/error.mp3");
+  const sonidoExcavacion = new Audio("../public/sounds/dig.mp3");
 
   // Mezcla un array (Fisher-Yates sería ideal, pero para quiz está bien)
   function mezclarArray(arr) {
@@ -149,9 +149,9 @@ const imagenes = {
 };
 
 const sonidos = {
-  excavar: new Audio("../public/assets/dig.mp3"),
-  oro: new Audio("../public/assets/correct.mp3"),
-  roca: new Audio("../public/assets/stone.mp3")
+  excavar: new Audio("../public/sounds/dig.mp3"),
+  oro: new Audio("../public/sounds/correct.mp3"),
+  roca: new Audio("../public/sounds/stone.mp3")
   
 };
 
