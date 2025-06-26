@@ -66,6 +66,17 @@ button:hover {
   font-size: 1.2em;
   color: #d4af37;
 }
+#contador-flotante {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: gold;
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 999;
+}
 #zona-juego {
   display: grid;
   grid-template-columns: repeat(5, 60px);
