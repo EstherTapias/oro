@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
+    background-color: #fff5d8;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #3e2f00;
+    position: relative;
+    overflow-x: hidden;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #fff5d8;
+}
+
+.header-nave,
+footer {
+    background-color: #ffc61b;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: #3e2f00;
+}
+
+.header-nave-list {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.header-nave-list li {
+    padding: 20px;
+}
+
+.header-nave-list li a {
+    padding: 10px 20px;
+    background-color: #f9a825;
+    color: #3e2f00;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.header-nave-list li a:hover {
+    background-color: #977201;
+    color: #fff5d8;
+}
+
+main {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 40px;
+}
+
+.titles {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 800;
+    color: #a57600;
+    font-size: 1.5rem;
+}
+
+.subtitles {
+    margin-top: 40px;
+}
+
+.intro-text-page {
+    display: flex;
+    margin-top: 40px;
+    gap: 40px;
+    align-items: center;
+}
+
+.intro-text-page h2 {
+    flex: 1;
+    font-size: 1.3rem;
+}
+
+#chest-img {
+    max-width: 250px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+#btn-yes {
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #ffc61b;
+    color: #695006;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: background-color 0.3s ease box-shadow 0.3s ease;
+    user-select: none;
+}
+
+#btn-yes:hover {
+    background-color: #e6b315;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 10px;
+}
+
+#btn-no {
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #c4c4c4;
+    text-decoration: none;
+    color: rgb(82, 82, 82);
+    display: inline-block;
+}
+
+#btn-no:hover {
+    background-color: #b6b6b6;
+}
+
+.gold-reserves-chart{
+    height: 450px;
+    max-width: 800px;
+}
+
+.gold-reserves-chart-canvas {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.chart-hide {
+    display: none;
+}
+
+.chart-show {
+    display: flex;
+    visibility: visible;
+}
+
+.video-hide {
+    display: none;
+}
+
+.video-show {
+    display: flex;
+}
+
+#video-container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+#videoMP4 {
+    max-width: 100%;
+    height: auto;
+}

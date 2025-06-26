@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/css/economia.css">
+    <!--Font family-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <script src="../src/js/economia.js" defer></script>
+    <!--Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+    <!--Particles background-->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <title>Económia del oro</title>
+</head>
+
+<body>
+    <header>
+        <div id="particles-js"></div>
+        <!-- TODO: Decidir como fazer -->
+        <nav class="header-nave">
+            <ul class="header-nave-list">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./historia.html">Historia</a></li>
+                <li><a href="./inf-quimica.html">Química</a></li>
+                <li><a href="./economia.html">Economía</a></li>
+                <li><a href="./medio-ambiente.html">Medio ambiente</a></li>
+                <li><a href="./usos.html">Usos</a></li>
+                <li><a href="./creadoras.html">Creadoras</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="section-coin">
+            <h1 class="titles">La moneda que nunca deja de circular</h1>
+            <article class="intro-text-page">
+                <h2>El oro no solo brilla: también guarda valor. Desde las civilizaciones antiguas hasta hoy, ha sido
+                    como un “cofre del tesoro” que nunca pierde su poder.</h2>
+                <div id="coin-chest">
+                    <img id="chest-img" src="../public/img/chestclose.svg" alt="Cofre do Tesouro">
+                </div>
+            </article>
+            <article class="gold-reserves">
+                <h1 class="titles">Reservas mundiales de oro</h1>
+                <h2 class="subtitles">Deseas ver las reservas de oros de los países?</h2>
+                <div class="container-btn">
+                    <a id="btn-yes">SÍ</a>
+                    <a id="btn-no">NO</a>
+                </div>
+                <div class="gold-reserves-chart chart-visibility chart-hide">
+                    <canvas class="gold-reserves-chart-canvas" id="gold-reserves-chart"></canvas>
+                </div>
+                <div id="video-container"  class="video-visibility video-hide"  style="display: none;">
+                    <video id="videoMP4" controls>
+                        <source src="../public/videos/video-final-cred.mp4" type="video/mp4">
+                        Su navegar no suporta el vídeo.
+                    </video>
+                </div>
+            </article>
+            <article class="gold-stroge">
+                <h2 class="subtitles">Dónde se guarda el oro</h2>
+                <!--https://www.youtube.com/watch?v=sNn_Gxph3TY-->
+                <div class="">Cards</div>
+            </article>
+            <article class="section-game">
+                <h3>GAME</h3>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Los derechos reservados</p>
+        <!-- TODO: Decidir como fazer -->
+    </footer>
+</body>
+
+</html>
