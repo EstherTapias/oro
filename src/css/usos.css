@@ -2,7 +2,7 @@ body {
     background-color: palegoldenrod;
 }
 
-div {
+.section {
     border: 1px solid black;
     display: flex;
     flex-wrap: wrap
