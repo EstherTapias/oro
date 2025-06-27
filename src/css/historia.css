@@ -1,0 +1,97 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff9db;
+  color: #4e342e;
+  margin: 0;
+}
+
+nav {
+  background-color: #ffd700;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #4e342e;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+  background-color: #fff3cd;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+#mapa.mapa-pequeño {
+  height: 300px;
+  transition: height 0.3s ease;
+  margin-top: 10px;
+  border: 2px solid #b8860b;
+  border-radius: 8px;
+}
+
+#mapa.mapa-grande {
+  height: 500px;
+}
+
+button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #fdd835;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #fbc02d;
+}
+
+#pepitas {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #d4af37;
+}
+#zona-juego {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.bloque {
+  width: 60px;
+  height: 60px;
+  background-color: #a1887f;
+  border: 2px solid #5d4037;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.bloque.excavado {
+  background-color: #d7ccc8;
+  cursor: default;
+}
+
+#resultado-rasca {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+
+
+  

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Impacto del Oro en el Medio Ambiente</title>
+  <link rel="stylesheet" href="../src/css/medio-ambiente.css"></link>
+  <script src="../src/js/medio-ambiente.js"></script>
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header>
+    <div class="tittle">
+      <h1>IMPACTO DEL ORO EN EL MEDIO AMBIENTE</h1>
+    </div>
+  </header>
+
+  <!-- Introducción -->
+  <section class="muñeco-intro">
+    <img src="https://img.freepik.com/vector-premium/dibujos-animados-gota-miel-caminando_309278-14523.jpg"
+         alt="muñeco explicativo"
+         class="img-muñeco" />
+    <p>
+      El oro es brillante, valioso y está en todas partes: joyas, móviles, ordenadores…
+      ¿pero sabías que conseguirlo puede dañar seriamente la naturaleza?
+      La minería del oro contamina el agua, destruye bosques y afecta a animales y personas.
+      Aquí te contamos cómo.
+    </p>
+  </section>
+
+  <!-- Extracción -->
+  <section class="extracción">
+    <article class="titulo">
+      <h2>¿Cómo afecta la extracción del oro al medio ambiente?</h2>
+    </article>
+    <p>
+      El oro se extrae de minas, muchas veces a cielo abierto.
+      Eso significa que se rompen montañas, se talan árboles y se usan explosivos.
+      En algunas zonas, también hay minería ilegal, sin control, que causa aún más daño.
+    </p>
+  </section>
+
+  <!-- Impactos específicos -->
+  <section class="impactos">
+    <h2>Impactos específicos</h2>
+  </section>
+
+  <!-- Tarjetas de impacto -->
+  <section class="container">
+    <article class="tarjeta">
+      <h3>EL ORO Y LA CONTAMINACIÓN DEL AGUA</h3>
+      <img src="https://i0.wp.com/www.loquesomos.org/wp-content/uploads/2021/02/Sierra-Minera-de-Cartagena-veneno-lqsomos.png?fit=1386%2C839&ssl=1" alt="agua contaminada" />
+      <button class="mostrar-explicación">Ver explicación</button>
+      <h4 class="explicación" style="display: none;">
+        Para separar el oro de las piedras, se usan químicos muy peligrosos como el mercurio y el cianuro.
+        Estos productos tóxicos terminan en ríos y lagos, envenenando el agua, los peces y a las personas que viven cerca.
+      </h4>
+    </article>
+
+    <article class="tarjeta">
+      <h3>DEFORESTACIÓN Y PÉRDIDA DE BIODIVERSIDAD</h3>
+      <img src="https://www.sunchaleshoy.com.ar/wp-content/uploads/2015/01/mina-extraccion-oro.jpg" alt="deforestación" />
+      <button class="mostrar-explicación">Ver explicación</button>
+      <h4 class="explicación" style="display: none;">
+        Muchas minas están en selvas o zonas naturales.
+        Para abrir paso se cortan árboles, se destruyen hábitats y los animales pierden su hogar.
+        La biodiversidad sufre mucho.
+      </h4>
+    </article>
+
+    <article class="tarjeta">
+      <h3>CÓMO AFECTA EL ORO EN LA CONTAMINACIÓN DEL AIRE Y LA TIERRA</h3>
+      <img src="https://www.nacion.com/resizer/drZBcSeo8cIAvIrbUX72xZzsBYg=/1440x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gruponacion/OXGPAXOCTZGSTP7O2DVDQ44F4M.jpg" alt="aire contaminado" />
+      <button class="mostrar-explicación">Ver explicación</button>
+      <h4 class="explicación" style="display: none;">
+        Las explosiones, máquinas y productos químicos contaminan el aire.
+        El suelo queda destruido, lleno de metales tóxicos, y ya no sirve para sembrar ni para vivir.
+      </h4>
+    </article>
+  </section>
+
+  <!-- Sección Reciclaje -->
+  <section class="container">
+    <article class="reciclaje-oro">
+      <h5>♻ RECICLAJE DEL ORO ♻</h5>
+      <p>
+        El reciclaje del oro es una alternativa sostenible que reduce la necesidad de extraer más oro de la tierra.
+        Podemos recuperar oro de dispositivos electrónicos, joyas y otros objetos, evitando el daño a la naturaleza.
+      </p>
+    </article>
+  </section>
+
+  <!-- Juego reciclaje -->
+  <section class="container">
+    <article class="reciclaje-oro">
+      <h5>♻ JUEGO DE RECICLAJE ♻</h5>
+      <p>Haz clic sobre los objetos que contienen oro reciclable:</p>
+      <div id="juego">
+        <button onclick="verificarOro(this)">📱</button>
+        <button onclick="verificarOro(this)">🍎</button>
+        <button onclick="verificarOro(this)">💍</button>
+        <button onclick="verificarOro(this)">🥤</button>
+      </div>
+      <p id="resultado"></p>
+    </article>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p style="text-align:center; padding:1rem; background:green; color:white;">
+      Página educativa sobre el impacto ambiental del oro - 2025
+    </p>
+  </footer>
+
+</body>
+</html>
