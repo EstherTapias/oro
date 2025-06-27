@@ -5,28 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Historia del Oro</title>
   <link rel="stylesheet" href="../src/css/historia.css" />
+  <link rel="stylesheet" href="../src/css/style.css">
 
   <!-- Leaflet CSS local (descomenta si usas local) -->
   <!-- <link rel="stylesheet" href="../libs/leaflet/leaflet.css" /> -->
 
   <!-- Leaflet CSS CDN (comenta si usas local) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!--Font Family-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
 
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="historia.html">Historia del Oro</a></li>
-        <li><a href="inf-quimica.html">Información Química</a></li>
-        <li><a href="economia.html">El oro y su economía</a></li>
-        <li><a href="medio-ambiente.html">El oro y el medio ambiente</a></li>
-        <li><a href="usos.html">Los usos del oro</a></li>
-        <li><a href="creadoras.html">Creadoras</a></li>
-      </ul>
-    </nav>
-  </header>
+<header id="header-nave"></header>
 
    <!-- Contador flotante -->
   <div id="contador-flotante">
@@ -78,9 +72,7 @@
     <button id="btn-rascar" disabled>🎫 Rascar carta</button>
     <div id="resultado-rasca"></div>
   </section>
-  <footer>
-    <p>Proyecto realizado por el grupo 4 de Factoría Bootcamp FullStack+DevOps © 2025</p>
-  </footer>
+  <footer id="footer"></footer>
 
   <!-- Leaflet JS local (descomenta si usas local) -->
   <!-- <script src="../libs/leaflet/leaflet.js"></script> -->
@@ -89,6 +81,7 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script src="../src/js/historia.js"></script>
+  <script src="../src/js/index.js"></script>
 </body>
 </html>
 

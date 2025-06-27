@@ -5,26 +5,6 @@ body {
   margin: 0;
 }
 
-nav {
-  background-color: #ffd700;
-  padding: 10px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #4e342e;
-}
-
 main {
   padding: 20px;
 }
