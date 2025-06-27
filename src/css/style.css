@@ -1,2 +1,119 @@
-body {
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-nave {
+    background-color: #1f1803;
+    display: flex;
+}
+
+.logo {
+    height: 120px;
+}
+
+.logo-img {
+    height: 100%;
+    padding: 10px 20px;
+    padding-right: 40px;
+    transition: transform .2s;
+}
+
+.logo-img:hover {
+    transform: scale(1.5);
+}
+
+.header-nave {
+    display: flex;
+    justify-content: center;
+    min-height: 200px;
+    align-items: center;
+    gap: 20px;
+    box-shadow: rgba(31, 24, 3, 0.24) 0px 6px 8px;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    margin-bottom: 40px;
+}
+
+.header-nave-list {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+
+}
+
+.header-nave-list li {
+    padding: 20px 10px;
+}
+
+.header-nave-list li a {
+    padding: 10px 20px;
+    background-color: #f9a825;
+    color: #3e2f00;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    border-bottom: solid 2px #f9a825;
+}
+
+.header-nave-list li a:hover {
+    background-color: #1f1803;
+    color: #fff5d8;
+    border-bottom: solid 4px #f9a825;
+}
+
+
+footer {
+    margin-top: 40px;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    background-color: #1f1803;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: #ffc61b;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: rgba(31, 24, 3, 0.24) 0px -6px 8px;
+}
+
+footer p {
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: #ffc61b;
+    text-decoration: none;
+}
+
+.footer-logo {
+    width: 6.5rem;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-logo:hover {
+    filter: none;
+    transform: scale(1.05);
+}
+
+.footer-logo {
+    opacity: 0;
+    transform: translateX(-200px);
+    animation: slideUp 2s ease-out forwards;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

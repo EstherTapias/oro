@@ -1,36 +1,17 @@
+fetch('../index.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+  });
+
+fetch('../index.html')
+  .then(res => res.text())
+  .then(data => document.getElementById('footer').innerHTML = data);
+
 /* Logo */
-const imgLogoHTML = document.getElementById('logo-img');
-const imgsLogo = [
-  '../public/img/logo-au-1.svg',
-];
 
-for (let index = 2; index <= 8; index++) {
-  imgsLogo.push(`../public/img/logo-au-${index}.svg`);
-}
-
-let currentLogoIndex = 0;
-let hoverInterval = null;
-
-function startLogoCycle() {
-  if (hoverInterval) return;
-
-  hoverInterval = setInterval(() => {
-    currentLogoIndex = (currentLogoIndex + 1) % imgsLogo.length;
-    imgLogoHTML.src = imgsLogo[currentLogoIndex];
-  }, 100);
-}
-
-function stopLogoCycle() {
-  clearInterval(hoverInterval);
-  hoverInterval = null;
-  currentLogoIndex = 0;
-  imgLogoHTML.src = imgsLogo[currentLogoIndex];
-}
 
 /*Buttons Yes and No */
-
-imgLogoHTML.addEventListener('mouseenter', startLogoCycle);
-imgLogoHTML.addEventListener('mouseleave', stopLogoCycle);
 const coinSound = new Audio('../public/sounds/cash-register-fake-88639.mp3');
 const videoContainer = document.getElementById('video-container');
 console.log(videoContainer);
