@@ -1,390 +1,7 @@
-/*Reset básico*/
-body {
-
-    font-family:serif;
-    font-size: 18px;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-/*TITULO*/
-header {
-    background-color: green;
-    padding: 1rem;
-}
-
-.tittle h1 {
-    color: yellow;
-    text-align: center;
-    font-size: 40px;
-}
-/*INTRODUCCIÓN*/
-.muñeco-intro {
-    background-image: url("https://img.freepik.com/fotos-premium/fondo-verde-globo-terraqueo-centro-imagen_832479-5031.jpg");
-    background-size: cover;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 2rem;
-}
-.img-muñeco {
-    width: 300px;
-    padding: 20px;
-    mix-blend-mode: normal; /* Esto evita el camuflaje */
-}
-/*Sección extracción*/
-.extracción {
-    background-color: azure;
-    padding: 2rem;
-}
-
-.titulo h2 {
-    color:green;
-    font-size: 28px;
-    text-align: center;
-}
-
-/*Sección impactos*/
-.impactos h2 {
-    background-color: yellow;
-    color: green;
-    padding: 1rem;
-    text-align: center;
-    font-size: 32px;
-}
-/*TARJETAS*/
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-.tarjeta img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-You said:
-estoy trabajando en un proyecto sobre el oro y me ha tocado crear una pagina web sobre el impacto del oro en el medio ambiente con html css y java script tengo mas o menos estructurada la pagina pero me gustaria que fuera algo claro y sencillo y no se que meter de java script ni en la seccion de reciclaje puedes ayudarme si te mando los codigos
-
-ChatGPT said:
-Claro, estaré encantado de ayudarte. Puedes enviarme el código que ya tienes (HTML, CSS y lo que tengas de JavaScript), y te ayudo a:
-
-Simplificar y organizar la estructura para que sea clara y visualmente atractiva.
-
-Sugerir ideas para JavaScript que sean útiles y no solo decorativas (como una sección interactiva o una pequeña animación).
-
-Diseñar la sección de reciclaje, con texto claro y, si quieres, con alguna funcionalidad interactiva.
-
-Por ejemplo, para JavaScript podríamos implementar cosas como:
-
-Un botón que muestre datos sobre reciclaje al hacer clic.
-
-Un carrusel de imágenes o estadísticas.
-
-Un test o trivia interactiva sobre el impacto ambiental del oro.
-
-Una barra de progreso que muestre cuánto se recicla vs cuánto se extrae.
-
-Envíame los archivos o pégalos aquí y comenzamos.
-
-
-
-You said:
- 
-<!DOCTYPE html> 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/css/medio-ambiente.css"></link>
-    <script src="../src/js/medio-ambiente.js" defer></script>
-    <title>IMPACTO DEL ORO EN EL MEDIO AMBIENTE</title>
-</head>
-<body>
-    <!--TITULO-->
-
-<header>
-    <div class="container">
-<div class="tittle">  
-<h1>IMPACTO DEL ORO EN EL MEDIO AMBIENTE</h1>
-
-</div>
-</div>
-<nav>
-</nav>
-</header>
-  <!--INTRODUCCIÓN-->
-
-
-        <!--contenedor para imagen y texto-->
-        <div class="muñeco-intro">
-        <img src= "https://img.freepik.com/vector-premium/dibujos-animados-gota-miel-caminando_309278-14523.jpg" alt="muñeco explicativo" class="img-muñeco">
-<p>El oro es brillante, valioso y está en todas partes: joyas, móviles, ordenadores…
-¿pero sabias que conseguirlo puede dañar seriamente la naturaleza?
- La minería del oro contamina el agua, 
-destruye bosques y afecta a animales y personas. Aquí te contamos cómo.</p>
-</div>
-<!--Sección ¿Cómo afecta laextracción del oro? -->
-<div class="extracción">
-    <article class="titulo">
-    <h2>¿Cómo afecta la extracción del oro al medio ambiente?</h2>
-    </article>
-    <h4 class="texto"></h4> El oro se extrae de minas, muchas veces a cielo abierto.
-Eso significa que se rompen montañas, se talan árboles y se usan explosivos.
-En algunas zonas, también hay minería ilegal, sin control, que causa aún mas daño.</p>
-    </div>
-<!--Sección de Impactos Específicos-->
-<div class="impactos">
-    <h2>Impactos específicos</h2>
-    </div>
-<!--TARJETAS-->
-<!--agua-->
- <section class="container">
-    <article class="tarjeta">
-    <h3>EL ORO Y LA CONTAMINACIÓN DEL AGUA</h3>
-  <img src="https://i0.wp.com/www.loquesomos.org/wp-content/uploads/2021/02/Sierra-Minera-de-Cartagena-veneno-lqsomos.png?fit=1386%2C839&ssl=1" alt="agua-frente">
-   <button class="mostrar-explicación">Ver explicación</button>
-  <h4 class="explicación">Para separar el oro de las piedras, se usan químicos muy peligrosos cómo el mercurio y el cianuro.
-Estos productos tóxicos terminan en ríos y lagos, envenenando el agua, los peces y a las personas que viven cerca.</h4>
-</article>
-</article>
-
-<!-- Deforestación y Pérdida de Biodiversidad-->
-<article class="tarjeta">
-<h3>LA DEFORESTACIÓN Y PÉRDIDA DE BIODIVERSIDAD</h3>
-    <img src="https://www.sunchaleshoy.com.ar/wp-content/uploads/2015/01/mina-extraccion-oro.jpg" alt="deforestación-oro">
-    <button class="mostrar-explicación">Ver explicación</button>
-    <h4 class="explicación">Muchas minas están en selvas o zonas naturales.
-Para abrir paso se cortan árboles, se destruyen hábitats y los animales pierden su hogar.
-La biodiversidad sufre mucho.</h4>
-</article>
-
-<!--Impacto: Contaminación del aire y la Tierra-->
- <article class="tarjeta">
-    <h3>LA CONTAMINACIÓN DEL AIRE Y LA TIERRA</h3>
-<img src="https://www.nacion.com/resizer/drZBcSeo8cIAvIrbUX72xZzsBYg=/1440x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gruponacion/OXGPAXOCTZGSTP7O2DVDQ44F4M.jpg" alt="aire">
-    <button class="mostrar-explicación">Ver explicación</button>
-<h4 class="explicación">Las explosiones, máquinas y productos químicos contaminan el aire.
-El suelo queda destruido, lleno de metales tóxicos, y ya no sirve para sembrar ni para vivir.</h4>
- </article>
- </section>
-
-<!--Sección: Reciclaje del oro-->
-<section class="container">
-<article class="reciclaje-oro">
-        <h5>♻ RECICLAJE DEL ORO ♻</h5>
-        <h6 class="texto-reciclaje"></h6> El reciclaje del oro es una alternativa sostenible que reduce la necesidad de extraer
-             más oro de la tierra, disminuyendo el impacto ambiental. Es una forma de aprovechar 
-             el oro que ya existe en dispositivos electrónicos, joyas y otros objetos, evitando
-             así el daño a la naturaleza.</h6>
-    </article>
-    </section>
-    <!--Pie de página-->
-    <footer id="contacto">
-     </footer>
-</body>
-</html>                                                                                                                                                                   ESE ES EL HTML                                                                                                                                         body {
-    font-family:serif;
-    font-size: x-large;
-    padding: 0;
-    margin: 0;
-}
-/*TITULO*/
-.tittle {
-    background-color: green;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem;
-}
-/*TEXTO TITULO*/
-h1 {
-    font-family: serif;
-    font-size: 50px;
-    color: yellow;
-    text-align: center;
-    margin-top: 30px;
-}
-/*INTRODUCCIÓN*/
-.muñeco-intro {
-    background-image: url("https://img.freepik.com/fotos-premium/fondo-verde-globo-terraqueo-centro-imagen_832479-5031.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    text-align: left;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: x-large;
-}
-.img-muñeco {
-    width: 400px;
-    padding: 20px;
-    mix-blend-mode: multiply;
-}
-.extracción {
-    background-color: azure;
-    font-family: serif;
-    font-size: 20px;
-}
-
-.titulo {
-    color:green;
-    font-size: 30px;
-    font-family: serif;
-}
-
-/*IMPACTOS TITULO*/
-.impactos {
-    background-color: yellow;
-    padding: 20px;
-    font-family: serif;
-    font-size: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: green;
-}
-/*TARJETAS IMPACTOS*/
-
-.tarjeta {
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    text-align: center;
-    background-color: yellow;
-    max-width: 400px;
-    width: 90%;
-    padding: 1rem;
-    font-family: cursive;
-    font-size: medium;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
-    margin: 2rem 0.5rem;
-    padding: 1rem;
-    border-radius: 12px;
-}
-
-h3 {
-    font-family: serif;
-    color: green;
-    font-size: x-large;
-}
-
-
-.tarjeta img {
-    width:100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-
-/*botón*/
-.mostrar explicación {
-margin: 1rem 0;
-padding: 10px 20px;
-background-color: green;
-color: white;
-font-family: cursive;
-border: none;
-border-radius: 8px;
-cursor: pointer;
-transition: backgraund-color 0.3s;
-}
-.mostrar explicación:hover {
-    background-color: darkgreen;
-}
-/*OCULTAR TEXTO AL INICIO*/
-.explicación {
-    display: none;
-    font-size: 1rem;
-    padding-top: 1rem;
-}
-
-.container {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    padding: 2rem 1rem;
-    background-color: green;
-    
-    
-}
-.reciclaje-oro {
-    background-color: yellow;
-    padding: 2rem;
-    width: 2 rem;
-    font-family: cursive;
-}
-h5 {
-    font-family: serif;
-    font-size: 60px;
-    text-align: center;
-    color:green;
-}
-
-
-
-@media(max-widht:600px) {
-    .tarjeta
-    font-size: small;
-    padding: 1rem;
-}
-tarjeta img {
-    height: auto;
-    max-height: 150px;
-}                                                                                                                                                                                EL CSS                                                                                                                                                        document.addEventListener('DOMContentLoaded', () => {
-    const botones = document.querySelectorAll('.mostrar-explicación');
-
-    botones.forEach(boton => {
-        const tarjeta = boton.closest('.tarjeta');
-        const explicacion = tarjeta.querySelector('.explicación');
-
-        // Asegurar que esté oculto al inicio
-        explicacion.style.display = 'none';
-
-        // Evento: mostrar u ocultar texto
-        boton.addEventListener('click', () => {
-            const visible = explicacion.style.display === 'block';
-            explicacion.style.display = visible ? 'none' : 'block';
-            boton.textContent = visible ? 'Ver explicación' : 'Ocultar explicación';
-        });
-    });
-});                                                                                                                                                                               Y EL JAVA SCRIPT NO ME GUSTA COMO HAN QUEDADO LAS TARJETAS CON LOS BOTONES , ME GUSTARIA QUE AL PULSAR EL BTON SALGA OTRA TARJETA DONDE PONGA LA EXPLICACION TAMBIEN ME GUSTARIA QUE EL MUÑECO DE LA INTRODUCCION TUVIERA SU COLOR NORMAL Y NO EL MISMO QUE EL FONDO DE LA SECCION, METER ALGUNA IMAGEN CON JAVA SCRIPT EN LA EXTRACCION DEL ORO QUE LAS TARJETAS Y LAS IMAGENES ESTEN ALINEADAS IGUALES Y EN LA SECCION RECICLAJE METER ALGUN JUEGO SENCILLO LA PAGINA TIENE QUE TENER DISEÑO RESPONSIVE Y FUNCIONAR TANTO EN ESCRITORIO COMO MOVIL POR FAVOR HAZLO LO MAS FACIL SENCILLO POSIBLE AUN QUE HAYA QUE MODIFICAR COSAS QUE NO TENGO NI IDEA Y TENGO QUE EXPLICAR ELPROCESO GRACIAS           
-
-ChatGPT said:
-¡Perfecto! Gracias por compartir todo. Te voy a ayudar a dejar tu web más clara, ordenada y sencilla de mantener, haciendo estos cambios que mencionaste:
-
-✅ Resumen de mejoras que aplicaremos:
-Mejorar las tarjetas: al pulsar el botón, aparecerá una tarjeta nueva con la explicación, no solo mostrar texto.
-
-Corregir el muñeco de la introducción: para que mantenga sus colores originales.
-
-Añadir imagen dinámica con JavaScript en la sección de “extracción del oro”.
-
-Alinear tarjetas e imágenes correctamente para que estén bien organizadas.
-
-Agregar un minijuego sencillo en la sección de reciclaje (por ejemplo: arrastrar elementos reciclables).
-
-Diseño responsive: adaptar estilos a móvil y escritorio.
-
-💡 Primero: Arreglos rápidos de CSS
-Corrige errores de clase y añade estilos más claros. Aquí tienes un CSS corregido y mejorado:
-
-css
-Copy
-Edit
 /* Reset básico */
 body {
     font-family: serif;
-    font-size: 18px;
+    font-size: 20px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -405,26 +22,37 @@ header {
 .muñeco-intro {
     background-image: url("https://img.freepik.com/fotos-premium/fondo-verde-globo-terraqueo-centro-imagen_832479-5031.jpg");
     background-size: cover;
-    color: white;
+    background-position: center;
+    color: black;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     padding: 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 .img-muñeco {
     width: 300px;
     padding: 20px;
     mix-blend-mode: normal; /* Esto evita el camuflaje */
+    flex: 0 0 auto;
 }
+.muñeco-intro p {
+  flex: 1;
+  text-align: right;
+  font-size: 30px;
+  line-height: 1.6;
+}
+
 
 /* SECCIÓN EXTRACCIÓN */
 .extracción {
     background-color: azure;
     padding: 2rem;
+    font-size: 30px;
 }
 .titulo h2 {
     color: green;
-    font-size: 28px;
+    font-size: 40px;
     text-align: center;
 }
 
@@ -434,7 +62,7 @@ header {
     color: green;
     padding: 1rem;
     text-align: center;
-    font-size: 32px;
+    font-size: 40px;
 }
 
 /* TARJETAS */
@@ -479,6 +107,7 @@ header {
 .reciclaje-oro {
     background-color: yellow;
     padding: 2rem;
+    font-size: 30px;
     text-align: center;
 }
 h5 {
