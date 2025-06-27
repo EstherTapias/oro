@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/css/economia.css">
+    <link rel="stylesheet" href="../src/css/style.css">
     <!--Font family-->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap"
         rel="stylesheet">
+    <script src="./src/js/index.js" defer></script>
     <script src="../src/js/economia.js" defer></script>
     <!--Chart-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -22,26 +24,12 @@
         rel="stylesheet">
 
     <title>Económia del oro</title>
+
 </head>
 
 <body>
     <div id="particles-js"></div>
-    <header>
-        <nav class="header-nave">
-            <div class="logo">
-                <a href="../index.html"> <img class="logo-img" id="logo-img" src="../public/img/logo-au-1.svg"
-                        alt="oro elemento 79"></a>
-            </div>
-            <ul class="header-nave-list">
-                <li><a href="./historia.html">Historia</a></li>
-                <li><a href="./inf-quimica.html">Química</a></li>
-                <li><a href="./economia.html">Economía</a></li>
-                <li><a href="./medio-ambiente.html">Medio ambiente</a></li>
-                <li><a href="./usos.html">Usos</a></li>
-                <li><a href="./creadoras.html">Creadoras</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header id="header"></header>
     <main>
         <section class="section-coin">
             <h1 class="titles">La moneda que nunca deja de circular</h1>
@@ -104,15 +92,7 @@
             </article>
         </section>
     </main>
-    <footer>
-        <p>Este proyecto ha sido desarrollado como parte del programa de formación de FactoriaF5</p>
-        <p>© 2025 Tabla Periódica Interactiva | Elemento Oro | <a
-                href="https://github.com/CeliaMi/periodic-table-project/tree/main" target="_blank">+ info</a>
-        </p>
-        <a href="https://factoriaf5.org" target="_blank"><img class="footer-logo"
-                src="https://femcoders.factoriaf5.org/wp-content/uploads/2021/12/Logo-FemCodersF5-color-300x224.png"
-                alt="logo femcoders factoriaf5"></a>
-    </footer>
+    <footer id="footer"></footer>
 </body>
 
 </html>
