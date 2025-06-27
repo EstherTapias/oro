@@ -1,12 +1,19 @@
 fetch('../index.html')
   .then(response => response.text())
   .then(data => {
-    document.getElementById('header').innerHTML = data;
-  });
+    // Extrai o header
+    const headerMatch = data.match(/<header[^>]*>([\s\S]*?)<\/header>/i);
+    if (headerMatch) {
+      document.getElementById('header-nave').innerHTML = headerMatch[1];
+      runLogoAnimation(); // chama a animação depois de inserir o header
+    }
 
-fetch('../index.html')
-  .then(res => res.text())
-  .then(data => document.getElementById('footer').innerHTML = data);
+    // Extrai o footer
+    const footerMatch = data.match(/<footer[^>]*>([\s\S]*?)<\/footer>/i);
+    if (footerMatch) {
+      document.getElementById('footer').innerHTML = footerMatch[1];
+    }
+  });
 
 /* Logo */
 
