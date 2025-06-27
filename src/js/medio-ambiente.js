@@ -1,5 +1,8 @@
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Mostrar/ocultar tarjetas de explicación
     const botones = document.querySelectorAll('.mostrar-explicación');
+
     botones.forEach(boton => {
         boton.addEventListener('click', () => {
             const tarjeta = boton.closest('.tarjeta');
@@ -24,12 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // Imagen dinámica en sección extracción
-    const imagen = document.createElement('img');
-    imagen.src = "https://cdn.pixabay.com/photo/2021/04/17/08/25/gold-mine-6184747_1280.jpg";
-    imagen.alt = "Minería del oro";
-    imagen.style.width = "100%";
-    imagen.style.borderRadius = "12px";
-    document.querySelector('.extracción').appendChild(imagen);
 });
+
+// Juego reciclaje
+function verificarOro(boton) {
+    const resultado = document.getElementById('resultado');
+    if (boton.textContent === '📱' || boton.textContent === '💍') {
+        resultado.textContent = "¡Correcto! Ese objeto contiene oro reciclable.";
+    } else {
+        resultado.textContent = "Ese objeto no contiene oro reciclable. Intenta otra vez.";
+    }
+}
