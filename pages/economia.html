@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/css/economia.css">
+    <!--Font family-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap"
+        rel="stylesheet">
+    <script src="../src/js/economia.js" defer></script>
+    <!--Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+    <!--Particles background-->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!--Font Family-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <title>Económia del oro</title>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <header>
+        <nav class="header-nave">
+            <div class="logo">
+                <a href="../index.html"> <img class="logo-img" id="logo-img" src="../public/img/logo-au-1.svg"
+                        alt="oro elemento 79"></a>
+            </div>
+            <ul class="header-nave-list">
+                <li><a href="./historia.html">Historia</a></li>
+                <li><a href="./inf-quimica.html">Química</a></li>
+                <li><a href="./economia.html">Economía</a></li>
+                <li><a href="./medio-ambiente.html">Medio ambiente</a></li>
+                <li><a href="./usos.html">Usos</a></li>
+                <li><a href="./creadoras.html">Creadoras</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="section-coin">
+            <h1 class="titles">La moneda que nunca deja de circular</h1>
+            <article class="intro-text-page">
+                <h2>El oro no solo brilla: también guarda valor. Desde las civilizaciones antiguas hasta hoy, ha sido
+                    como un “cofre del tesoro” que nunca pierde su poder.</h2>
+                <div id="coin-chest">
+                    <img id="chest-img" src="../public/img/chestclose.svg" alt="Cofre do Tesouro">
+                </div>
+            </article>
+            <article class="gold-reserves">
+                <h1 class="titles">Reservas mundiales de oro</h1>
+                <h2 class="subtitles">Deseas ver las reservas de oros de los países?</h2>
+                <div class="container-btn">
+                    <a id="btn-yes">SÍ</a>
+                    <a id="btn-no">NO</a>
+                </div>
+                <div class="gold-reserves-chart chart-visibility chart-hide">
+                    <canvas class="gold-reserves-chart-canvas" id="gold-reserves-chart"></canvas>
+                </div>
+                <div id="video-container" class="video-visibility video-hide" style="display: none;">
+                    <video id="videoMP4" controls>
+                        <source src="../public/videos/video-final-cred.mp4" type="video/mp4">
+                        Su navegar no suporta el vídeo.
+                    </video>
+                </div>
+            </article>
+            <article class="gold-store">
+                <h2 class="subtitles">Dónde se guarda el oro</h2>
+                <!--https://www.youtube.com/watch?v=sNn_Gxph3TY-->
+                <div class="gold-store-cards">
+                    <div>
+                        <h3>Estados Unidos</h3>
+                    </div>
+                    <div>
+                        <h3>Alemania</h3>
+                    </div>
+                    <div>
+                        <h3>Estados Unidos</h3>
+                    </div>
+                    <div>
+                        <h3>Alemania</h3>
+                    </div>
+                    <div>
+                        <h3>Estados Unidos</h3>
+                    </div>
+                    <div>
+                        <h3>Alemania</h3>
+                    </div>
+                    <div>
+                        <h3>Estados Unidos</h3>
+                    </div>
+                    <div>
+                        <h3>Alemania</h3>
+                    </div>
+                </div>
+            </article>
+            <article class="section-game">
+                <h3>GAME</h3>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Este proyecto ha sido desarrollado como parte del programa de formación de FactoriaF5</p>
+        <p>© 2025 Tabla Periódica Interactiva | Elemento Oro | <a
+                href="https://github.com/CeliaMi/periodic-table-project/tree/main" target="_blank">+ info</a>
+        </p>
+        <a href="https://factoriaf5.org" target="_blank"><img class="footer-logo"
+                src="https://femcoders.factoriaf5.org/wp-content/uploads/2021/12/Logo-FemCodersF5-color-300x224.png"
+                alt="logo femcoders factoriaf5"></a>
+    </footer>
+</body>
+
+</html>
