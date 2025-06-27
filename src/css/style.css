@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 a {
     text-decoration: none;
     cursor: pointer;
@@ -6,6 +12,7 @@ a {
 .header-nave {
     background-color: #1f1803;
     display: flex;
+    font-family: "Montserrat", sans-serif;
 }
 
 .logo {
@@ -84,6 +91,7 @@ footer {
     padding: 1.5rem;
     text-align: center;
     box-shadow: rgba(31, 24, 3, 0.24) 0px -6px 8px;
+    font-family: "Montserrat", sans-serif;
 }
 
 footer p {
