@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oro - Carrousel con tarjetas</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffffff; /* Fondo negro para que brille más */
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      margin-top: 20px;
+    }
+
+    .carousel {
+      display: flex;
+      animation: slide 25s infinite linear;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      border: 2px solid gold;
+      border-radius: 12px;
+      padding: 20px 60px;
+      /*background-color: rgba(0, 0, 0, 0.3); /* Fondo transparente oscuro */
+      background-color: transparent;
+      box-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 40px gold;
+      color: white;
+      text-align: center;
+      width: 300px;
+      height: 200px;
+      display: flex;
+
+      flex-direction: column;
+        align-items: center; /* Horizontal centering */
+      justify-content: center; /* Vertical centering */
+      /*position: relative;*/
+      gap: 10px; /* separation between value and label */
+    }
+
+    .card .value {
+      /*font-size: 2.5rem;*/
+      font-size: 6rem;
+
+      font-weight: bold;
+      color: gold;
+      text-shadow: 0 0 10px gold, 0 0 20px gold;
+
+    }
+
+    .card .label {
+      font-size: 2rem;
+      color: #fff;
+      margin-top: auto;
+      /*text-shadow: 0 0 5px gold;*/
+      text-shadow: 0 0 5px grey;
+      
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      20% { transform: translateX(0%); }
+      25% { transform: translateX(-100%); }
+      45% { transform: translateX(-100%); }
+      50% { transform: translateX(-200%); }
+      70% { transform: translateX(-200%); }
+      75% { transform: translateX(-300%); }
+      95% { transform: translateX(-300%); }
+      100% { transform: translateX(-400%); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="carousel">
+      <div class="carousel-item">
+        <div class="card">
+          <div class="value">196.967</div>
+          <div class="label">Masa Atómica</div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="value">Au</div>
+          <div class="label">Símbolo Químico</div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="value">79</div>
+          <div class="label">Número atómico</div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="value">196.967</div>
+          <div class="label">Masa atómica relativa</div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="value">19,32 g/cm³</div>
+          <div class="label">Densidad</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Aquí tu contenido -->
+  </main>
+
+  <footer>
+    <!-- Footer -->
+  </footer>
+
+</body>
+</html>
