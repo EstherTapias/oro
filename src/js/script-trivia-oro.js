@@ -18,7 +18,7 @@ const preguntas = [
         opciones: [
           "En tratamientos contra la artritis",
           "Para hacer termómetros de oro",
-          "Para vacunas infantiles"
+          "Para vacunas"
         ],
         correcta: 0
       },
