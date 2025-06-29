@@ -1,9 +1,10 @@
 body {
     background-color: palegoldenrod;
+    text-align: center;
 }
 
 .section {
-    border: 1px solid black;
+    /*border: 1px solid black*/
     display: flex;
     flex-wrap: wrap
 }
@@ -14,7 +15,7 @@ body {
     flex-wrap: wrap;
     height: 100px;
     box-sizing: border-box;
-    border: 1px solid #232f74;
+    /*border: 1px solid #232f74;*/
     justify-content: center;
     align-items: center;
 }
