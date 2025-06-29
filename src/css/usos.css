@@ -1,6 +1,9 @@
 body {
     background-color: palegoldenrod;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
+    padding-right: 2%;
+    padding-left: 2%;
 }
 
 .section {
@@ -15,7 +18,7 @@ body {
     flex-wrap: wrap;
     height: 200px;
     box-sizing: border-box;
-    border: 1px solid #232f74;
+    /*border: 1px solid #232f74;*/
     justify-content: center;
     align-items: center;
 }
@@ -38,8 +41,8 @@ body {
 .flip-card {
     width: 100%;
     height:100%;
-    background-color: green;
-    border:3px solid purple;
+    /*background-color: green;
+    border:3px solid purple;*/
 }
 
 .flip-card-inner {
@@ -49,7 +52,7 @@ body {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    background-color: yellow;
+    /*background-color: yellow;*/
 }
 
 .flip-card-front,
@@ -63,21 +66,22 @@ body {
 
 .flip-card-front {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-image: url(x);
-    color: black;
+    /*background-image: url(x);
+    color: black;*/
     z-index: 2;
     padding-top: 5px;
-    background-color: lightblue;
+    /*background-color: lightblue;*/
     height: 100%;
 }
 
 .flip-card-front img {
     height:70%;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .flip-card-back {
-    background-image: url(x);
-    color: black;
+    background-image: url(../../public/img/gold_background.png);
+    color: beige;
     transform: rotateY(180deg);
     position: absolute;
     top: 0;
@@ -86,7 +90,7 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: left;
     height: 100%;
-    background-color: brown;
+    background-color: transparent;
     overflow: auto;
 }
 
