@@ -18,7 +18,6 @@ sunPic.addEventListener("click", function (eventInfo) {
     }
     //Agregar evento onmouseover a las imágenes
     img.addEventListener("mouseover", function () {
-      alert("mostrar la flip-card!");
     });
   });
 });
