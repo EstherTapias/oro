@@ -83,6 +83,37 @@ button:hover {
   font-style: italic;
 }
 
+#cartas-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.carta {
+  width: 100px;
+  height: 140px;
+  background-color: #f8f8f8;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background-image: url('../public/img/carta-rascar.png');
+  background-size: cover;
+}
+
+.carta.revelada {
+  background-image: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  text-align: center;
+  padding: 5px;
+}
+
 
 
   

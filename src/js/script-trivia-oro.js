@@ -1,38 +1,29 @@
 const preguntas = [
       {
-        texto: "¿Por qué se usa oro en los teléfonos móviles?",
+        texto: "En la antigüedad, el oro no solo servía como adorno. ¿Qué uso medicinal le daban los antiguos egipcios al oro?",
         opciones: [
-          "Porque es bonito",
-          "Porque conduce electricidad muy bien",
-          "Porque es barato"
+          "Para combatir infecciones",
+          "En tratamientos para purificar el cuerpo y el alma",
+          "Como anestesia primitiva"
         ],
         correcta: 1
       },
       {
-        texto: "¿Cuál de estos objetos puede contener oro?",
-        opciones: ["Microchip", "Lata de refresco", "Camiseta"],
-        correcta: 0
-      },
-      {
-        texto: "¿En qué campo médico se usa el oro?",
-        opciones: [
-          "En tratamientos contra la artritis",
-          "Para hacer termómetros de oro",
-          "Para vacunas"
-        ],
-        correcta: 0
-      },
-      {
-        texto: "¿Cuál de estos países es famoso por producir oro?",
-        opciones: [
-          "Canadá", "Japón", "Egipto"
-        ],
-        correcta: 0
-      },
-      {
-        texto: "¿Qué color tiene el oro puro?",
-        opciones: ["Plateado", "Amarillo", "Negro"],
+        texto: "¿Qué famoso artista del siglo XX usó polvo de oro real en sus obras como símbolo de lo eterno?",
+        opciones: ["Pablo Picasso", "Gustav Klimt", "Andy Warhol"],
         correcta: 1
+      },
+      {
+        texto: "¿Por qué los astronautas usan oro en sus trajes espaciales o visores?",
+        opciones: [
+        "Porque hace que los trajes sean más ligeros", "Por puro lujo galáctico", "Porque refleja radiación solar peligrosa"
+        ],
+        correcta: 2
+      },
+      {
+        texto: "¿Qué función tiene el oro en la medicina moderna?",
+        opciones: ["En tratamientos contra ciertos tipos de artritis", "Se inyecta para regenerar músculos", "Se usa para hacer dientes invisibles"],
+        correcta: 0
       }
     ];
 
@@ -61,7 +52,7 @@ const preguntas = [
       const resultado = document.getElementById("resultado");
 
       if (esCorrecta) {
-        resultado.textContent = "✅ ¡Correcto!";
+        resultado.textContent = "✅ ¡Correcto, bien hecho!";
         resultado.style.color = "green";
         indice++;
         if (indice < preguntas.length) {
@@ -69,12 +60,12 @@ const preguntas = [
             mostrarPregunta();
           }, 1000);
         } else {
-          resultado.textContent = "🎉 ¡Terminaste la trivia del oro!";
+          resultado.textContent = "🎉 ¡Has terminado la Trivia del Oro, gracias por jugar! 🎉";
           document.getElementById("pregunta").textContent = "";
           document.getElementById("opciones").innerHTML = "";
         }
       } else {
-        resultado.textContent = "❌ Incorrecto. Intenta de nuevo.";
+        resultado.textContent = "❌ Incorrecto. Inténtalo de nuevo.";
         resultado.style.color = "crimson";
       }
     }
