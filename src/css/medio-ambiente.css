@@ -108,10 +108,13 @@ body {
     padding: 6rem;
     font-size: 30px;
     text-align: center;
+    margin-bottom: 60px;
 }
+
 h5 {
     font-size: 40px;
     color: green;
+    margin-bottom: 100px;
 }
 
 .boton-juego {
@@ -125,6 +128,9 @@ h5 {
 
 .boton-juego:hover {
   transform: scale(1.1); /* Efecto al pasar el mouse */
+}
+.texto-juego {
+    margin-bottom: 50px;
 }
 
 /* Responsive */
