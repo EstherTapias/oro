@@ -29,6 +29,10 @@ body {
     height: 90%;
 }
 
+#imgIngots {
+    width: 32px;
+}
+
 .img-not-visible {
     display: none;
     height: 50px;
