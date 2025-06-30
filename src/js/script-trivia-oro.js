@@ -53,7 +53,7 @@ const preguntas = [
 
       if (esCorrecta) {
         resultado.textContent = "✅ ¡Correcto, bien hecho!";
-        resultado.style.color = "green";
+        resultado.style.color = "orange";
         indice++;
         if (indice < preguntas.length) {
           setTimeout(() => {
