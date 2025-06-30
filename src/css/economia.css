@@ -1,0 +1,399 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*a {
+    text-decoration: none;
+    cursor: pointer;
+}*/
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
+    background-color: #fff5d8;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+    color: #3e2f00;
+    position: relative;
+    overflow-x: hidden;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #fff5d8;
+}
+
+/*.header-nave {
+    background-color: #1f1803;
+    display: flex;
+}
+
+.logo {
+    height: 120px;
+}
+
+.logo-img {
+    height: 100%;
+    padding: 10px 20px;
+    padding-right: 40px;
+    transition: transform .2s;
+}
+
+.logo-img:hover {
+    transform: scale(1.5);
+}
+
+.header-nave {
+    display: flex;
+    justify-content: center;
+    min-height: 200px;
+    align-items: center;
+    gap: 20px;
+    box-shadow: rgba(31, 24, 3, 0.24) 0px 6px 8px;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    margin-bottom: 40px;
+}
+
+.header-nave-list {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+
+}
+
+.header-nave-list li {
+    padding: 20px 10px;
+}
+
+.header-nave-list li a {
+    padding: 10px 20px;
+    background-color: #f9a825;
+    color: #3e2f00;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    border-bottom: solid 2px #f9a825;
+}
+
+.header-nave-list li a:hover {
+    background-color: #1f1803;
+    color: #fff5d8;
+    border-bottom: solid 4px #f9a825;
+}
+*/
+main {
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 40px;
+}
+
+.titles {
+    text-align: center;
+    margin-top: 80px;
+    font-weight: 800;
+    color: #a57600;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.subtitles {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.intro-text-page {
+    display: flex;
+    margin-top: 40px;
+    gap: 40px;
+    align-items: center;
+    margin-left: 180px;
+}
+
+.intro-text-page h2 {
+    font-size: 1.3rem;
+
+}
+
+#chest-img {
+    max-width: 250px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.char-video-container {
+    display: flex;
+    justify-content: center;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    margin-top: 80px;
+}
+
+#btn-yes {
+    padding: 10px 40px;
+    margin-right: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #f9a825;
+    color: #3e2f00;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: rgba(31, 24, 3, 0.24) 0px 6px 8px;
+    transition: background-color 0.3s ease box-shadow 0.3s ease transform .2s;
+    user-select: none;
+}
+
+#btn-yes:hover {
+    transform: scale(1.5);
+    background-color: #ffbd52;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 10px;
+}
+
+#btn-no {
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #c4c4c4;
+    text-decoration: none;
+    color: rgb(82, 82, 82);
+    display: inline-block;
+}
+
+#btn-no:hover {
+    background-color: #b6b6b6;
+}
+
+.gold-reserves-chart {
+    height: 450px;
+    max-width: 800px;
+}
+
+.gold-reserves-chart-canvas {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.chart-hide {
+    display: none;
+}
+
+.chart-show {
+    display: flex;
+    visibility: visible;
+}
+
+.video-hide {
+    display: none;
+}
+
+.video-show {
+    display: flex;
+}
+
+#video-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#videoMP4 {
+    max-width: 100%;
+    height: auto;
+}
+
+/*Storage gold cards*/
+
+.gold-storage-cards {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 20px;
+}
+
+.gold-storage-cards-country {
+    padding: 16px;
+    background-color: #f9a825;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: rgba(31, 24, 3, 0.24) 0px 6px 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
+}
+
+.gold-storage-cards-country:hover {
+    background-color: #ffbd52;
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 10px;
+}
+
+/* Modal */
+
+.gold-storage-modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.gold-storage-modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 40px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-title {
+    margin-bottom: 10px;
+}
+
+.modal-detail {
+    color: #f9a825;
+}
+
+.modal-description {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.gold-storage-modal-close {
+    position: absolute;
+    right: 15px;
+    top: 0px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #3e2f00;
+    transition: transform 0.2s;
+}
+
+.gold-storage-modal-close:hover,
+.gold-storage-modal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+
+/*Coins*/
+
+#coin-rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.golde-coin {
+    position: absolute;
+    top: -25px;
+    width: 40px;
+    height: 40px;
+    background-image: url("../../public/img/round-icons-xmyOuAxAI-E-unsplash.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: rainCoin 10s linear forwards;
+    z-index: 10;
+}
+
+@keyframes rainCoin {
+    to {
+        transform: translateY(85vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/*footer {
+    margin-top: 40px;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    background-color: #1f1803;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: #ffc61b;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: rgba(31, 24, 3, 0.24) 0px -6px 8px;
+}
+
+footer p {
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: #ffc61b;
+    text-decoration: none;
+}
+
+.footer-logo {
+    width: 6.5rem;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-logo:hover {
+    filter: none;
+    transform: scale(1.05);
+}
+
+.footer-logo {
+    opacity: 0;
+    transform: translateX(-200px);
+    animation: slideUp 2s ease-out forwards;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}*/

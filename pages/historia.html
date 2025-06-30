@@ -1,66 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia del Oro</title>
-    <link rel="stylesheet" href="../src/css/historia.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Historia del Oro</title>
+  <link rel="stylesheet" href="../src/css/historia.css" />
+  <link rel="stylesheet" href="../src/css/style.css">
+
+  <!-- Leaflet CSS local (descomenta si usas local) -->
+  <!-- <link rel="stylesheet" href="../libs/leaflet/leaflet.css" /> -->
+
+  <!-- Leaflet CSS CDN (comenta si usas local) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!--Font Family-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="historia.html">Historia del Oro</a></li>
-                <li><a href="inf-quimica.html">Información Química</a></li>
-                <li><a href="economia.html">El oro y su economía</a></li>
-                <li><a href="medio-ambiente.html">El oro y el medio ambiente</a></li>
-                <li><a href="usos.html">Los usos del oro</a></li>
-                <li><a href="creadoras.html">Creadoras</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="nombre">
-            <h1>¿De dónde viene el nombre del oro?</h1>
-            <p>El nombre "oro" viene del latín <strong>aurum</strong>, que significa "brillo del amanecer". Por eso su símbolo químico es <strong>Au</strong>.</p>
-          </section>
-          <section id="origen">
-            <h2>¿De dónde viene el oro?</h2>
-            <p>El oro se originó en el universo, en explosiones estelares, y llegó a la Tierra mediante meteoritos hace millones de años.</p>
-            <div id="mapaTitulo">              
-              <!-- mapa interactivo con JS -->
-              <h3>🌍 Mapa de países productores de oro</h3>
-            </div>
-            <div id="mapa"></div>
-          </section>
-          <section id="extraccion">
-            <h2>¿Cómo se extrae el oro?</h2>
-            <p>El oro puede extraerse de minas o ríos. Hoy en día, se usan procesos como la cianuración o la amalgamación.</p>
-          </section>
-          <section id="quiz">
-            <h2>🧠 ¿Cuánto sabes sobre el oro?</h2>
-            <div class="pregunta">
-              <p>¿Cuál es el símbolo químico del oro?</p>
-              <button onclick="responder(this, true)">Au</button>
-              <button onclick="responder(this, false)">Ag</button>
-              <button onclick="responder(this, false)">Or</button>
-            </div>
-            <div class="pregunta">
-              <p>¿En qué país se produce más oro actualmente?</p>
-              <button onclick="responder(this, true)">China</button>
-              <button onclick="responder(this, false)">Sudáfrica</button>
-              <button onclick="responder(this, false)">Brasil</button>
-            </div>
-            <p id="resultado"></p>
-          </section>
-    </main>
-    <footer>
-        <p>Proyecto realizado por el grupo 4 de Factoría Bootcamp FullStack+DevOps © 2025</p>
-    </footer>
-    
-    <script src="../src/js/historia.js"></script>
-        
-    
+<header id="header-nave"></header>
+
+   <!-- Contador flotante -->
+  <div id="contador-flotante">
+    💰 Pepitas de oro: <span id="pepitas">0</span>
+   </div>
+
+  <main>
+    <section id="nombre">
+      <h1>¿De dónde viene el nombre del oro?</h1>
+      <p>El nombre "oro" viene del latín <strong>aurum</strong>, que significa "brillo del amanecer". Por eso su símbolo químico es <strong>Au</strong>.</p>
+    </section>
+
+    <section id="origen">
+      <h2>¿De dónde viene el oro?</h2>
+      <p>El oro se originó en el universo, en explosiones estelares, y llegó a la Tierra mediante meteoritos hace millones de años.</p>
+      <div id="mapaTitulo">
+        <h3>🌍 Mapa de países productores de oro</h3>
+        <button id="btn-expandir-mapa">🔍 Expandir mapa</button>
+      </div>
+      <div id="mapa" class="mapa-pequeño"></div>
+    </section>
+
+    <section id="extraccion">
+      <h2>¿Cómo se extrae el oro?</h2>
+      <p>El oro puede extraerse de minas o ríos. Hoy en día, se usan procesos como la cianuración o la amalgamación.</p>
+    </section>
+
+    <section id="quiz">
+      <h2>🧠 ¿Cuánto sabes sobre el oro?</h2>
+      
+      <div id="quiz-container">
+        <!-- Preguntas y respuestas se generan dinámicamente -->
+      </div>
+
+      <p id="resultado"></p>
+      <button id="btn-reset">🔄 Reiniciar quiz</button>
+    </section>
+
+  </main>
+  <section id="juego">
+    <h2>⛏️ ¡Excava para encontrar pepitas!</h2>
+    <p>Haz clic en los bloques para excavar. Algunas casillas esconden pepitas de oro 💰</p>
+    <div id="zona-juego"></div>
+  </section>
+  
+  <section id="rasca">
+    <h2>🎁 Rasca y descubre un dato curioso</h2>
+    <p>Usa 3 pepitas para rascar una carta.</p>
+    <button id="btn-rascar" disabled>🎫 Rascar carta</button>
+    <div id="resultado-rasca"></div>
+  </section>
+  <footer id="footer"></footer>
+
+  <!-- Leaflet JS local (descomenta si usas local) -->
+  <!-- <script src="../libs/leaflet/leaflet.js"></script> -->
+
+  <!-- Leaflet JS CDN (comenta si usas local) -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script src="../src/js/historia.js"></script>
+  <script src="../src/js/index.js"></script>
 </body>
 </html>
+

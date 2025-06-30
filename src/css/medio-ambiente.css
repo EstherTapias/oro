@@ -1,0 +1,125 @@
+/* Reset básico */
+body {
+    font-family: serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* TITULO */
+.tittle {
+    background-color: green;
+    padding: 1rem;
+}
+.tittle h1 {
+    color: yellow;
+    text-align: center;
+    font-size: 40px;
+}
+
+/* INTRODUCCIÓN */
+.muñeco-intro {
+    background-image: url("https://img.freepik.com/fotos-premium/fondo-verde-globo-terraqueo-centro-imagen_832479-5031.jpg");
+    background-size: cover;
+    background-position: center;
+    color: black;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.img-muñeco {
+    width: 300px;
+    padding: 20px;
+    mix-blend-mode: normal; /* Esto evita el camuflaje */
+    flex: 0 0 auto;
+}
+.muñeco-intro p {
+  flex: 1;
+  text-align: right;
+  font-size: 30px;
+  line-height: 1.6;
+}
+
+
+/* SECCIÓN EXTRACCIÓN */
+.extracción {
+    background-color: azure;
+    padding: 2rem;
+    font-size: 30px;
+}
+.titulo h2 {
+    color: green;
+    font-size: 40px;
+    text-align: center;
+}
+
+/* SECCIÓN IMPACTOS */
+.impactos h2 {
+    background-color: yellow;
+    color: green;
+    padding: 1rem;
+    text-align: center;
+    font-size: 40px;
+}
+
+/* TARJETAS */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: green;
+}
+.tarjeta {
+    background-color: yellow;
+    width: 300px;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.tarjeta img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Botón */
+.mostrar-explicación {
+    margin: 1rem 0;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.mostrar-explicación:hover {
+    background-color: darkgreen;
+}
+
+/* Reciclaje */
+.reciclaje-oro {
+    background-color: yellow;
+    padding: 2rem;
+    font-size: 30px;
+    text-align: center;
+}
+h5 {
+    font-size: 40px;
+    color: green;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .muñeco-intro {
+        flex-direction: column;
+    }
+    .tarjeta {
+        width: 90%;
+    }
+}

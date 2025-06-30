@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/css/economia.css">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <!--Font family-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap"
+        rel="stylesheet">
+    <script src="../src/js/index.js" defer></script>
+    <script src="../src/js/economia.js" defer></script>
+    <!--Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+    <!--Particles background-->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!--Font Family-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <title>Económia del oro</title>
+
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <header id="header-nave"></header>
+    <main>
+        <section class="section-coin">
+            <h1 class="titles">La moneda que nunca deja de circular</h1>
+            <article class="intro-text-page">
+                <h2>El oro no solo brilla: también guarda valor. Desde las civilizaciones antiguas hasta hoy, ha sido
+                    como un “cofre del tesoro” que nunca pierde su poder.</h2>
+                <div id="coin-chest">
+                    <img id="chest-img" src="../public/img/chestclose.svg" alt="Cofre do Tesouro">
+                </div>
+            </article>
+            <article class="gold-reserves">
+                <h1 class="titles">Reservas mundiales de oro</h1>
+                <h2 class="subtitles">Deseas ver las reservas de oros de los países?</h2>
+                <div class="container-btn">
+                    <a id="btn-yes">SÍ</a>
+                    <a id="btn-no">NO</a>
+                </div>
+                <div class="char-video-container">
+                    <div class="gold-reserves-chart chart-visibility chart-hide">
+                        <canvas class="gold-reserves-chart-canvas" id="gold-reserves-chart"></canvas>
+                    </div>
+                    <div id="video-container" class="video-visibility video-hide" style="display: none;">
+                        <video id="videoMP4" controls>
+                            <source src="../public/videos/video-final-cred.mp4" type="video/mp4">
+                            Su navegar no suporta el vídeo.
+                        </video>
+                    </div>
+                </div>
+
+            </article>
+            <article class="gold-storage">
+                <h2 class="subtitles">Dónde se guarda el oro</h2>
+                <div class="gold-storage-cards">
+                    <div class="gold-storage-cards-country">
+                        <h3>Estados Unidos</h3>
+                    </div>
+                    <div class="gold-storage-cards-country">
+                        <h3>Alemania</h3>
+                    </div>
+                    <div class="gold-storage-cards-country">
+                        <h3>Italia</h3>
+                    </div>
+                    <div class="gold-storage-cards-country">
+                        <h3>Portugal</h3>
+                    </div>
+                    <div class="gold-storage-cards-country">
+                        <h3>España</h3>
+                    </div>
+                    <div class="gold-storage-cards-country">
+                        <h3>Brasil</h3>
+                    </div>
+                    <div class="gold-storage-cards-country">
+                        <h3>Paraguai</h3>
+                    </div>
+                    <div class="gold-storage-cards-country">
+                        <h3>Peru</h3>
+                    </div>
+                </div>
+                <div id="coin-rain-container"></div>
+                <div id="modal" class="gold-storage-modal">
+                    <div class="gold-storage-modal-content">
+                        <span class="gold-storage-modal-close">&times;</span>
+                        <h2 id="modal-title" class="modal-title"></h2>
+                        <hr class="modal-detail">
+                        <p id="modal-description" class="modal-description"></p>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer id="footer"></footer>
+</body>
+
+</html>
