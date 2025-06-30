@@ -6,9 +6,8 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-
 /* TITULO */
-header {
+.tittle {
     background-color: green;
     padding: 1rem;
 }

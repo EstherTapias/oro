@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+  fetch('../index.html')
+  .then(response => response.text())
+  .then(data => {
+    // Extrai o header
+    const headerMatch = data.match(/<header[^>]*>([\s\S]*?)<\/header>/i);
+    if (headerMatch) {
+      document.getElementById('header-nave').innerHTML = headerMatch[1];
+      runLogoAnimation(); // chama a animação depois de inserir o header
+    }
+
+    // Extrai o footer
+    const footerMatch = data.match(/<footer[^>]*>([\s\S]*?)<\/footer>/i);
+    if (footerMatch) {
+      document.getElementById('footer').innerHTML = footerMatch[1];
+    }
+  });
   // --- Mapa Leaflet ---
   const mapa = L.map("mapa").setView([20, 0], 2);
 
@@ -61,8 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultado = document.getElementById("resultado");
 
   // Sonidos (usa la ruta correcta para tus mp3)
-  const sonidoCorrecto = new Audio("../public/assets/correct.mp3");
-  const sonidoIncorrecto = new Audio("../public/assets/error.mp3");
+  const sonidoCorrecto = new Audio("../public/sounds/correct.mp3");
+  const sonidoIncorrecto = new Audio("../public/sounds/error.mp3");
+  const sonidoExcavacion = new Audio("../public/sounds/dig.mp3");
 
   // Mezcla un array (Fisher-Yates sería ideal, pero para quiz está bien)
   function mezclarArray(arr) {
@@ -133,8 +150,28 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarQuiz();
 });
 
-// --- Juego de excavación tipo Minecraft ---
+// --- Juego de excavación con imágenes y sonidos ---
+
 const zonaJuego = document.getElementById("zona-juego");
+const pepitasEl = document.getElementById("pepitas");
+const pepitasMinaEl = document.getElementById("pepitas-mina");
+const btnRascar = document.getElementById("btn-rascar");
+
+// Rutas relativas a imagenes
+const imagenes = {
+  tierra: "../public/img/dirt-block.png",
+  piedra: "../public/img/stone-block.png",
+  oro: "../public/img/gold.png"
+};
+
+const sonidos = {
+  excavar: new Audio("../public/sounds/dig.mp3"),
+  oro: new Audio("../public/sounds/correct.mp3"),
+  roca: new Audio("../public/sounds/stone.mp3")
+  
+};
+
+// Configuración
 const totalBloques = 20;
 const bloquesConPepitas = new Set();
 
@@ -142,30 +179,35 @@ while (bloquesConPepitas.size < 5) {
   bloquesConPepitas.add(Math.floor(Math.random() * totalBloques));
 }
 
+// Creamos los bloques
 for (let i = 0; i < totalBloques; i++) {
   const bloque = document.createElement("div");
-  bloque.classList.add("bloque");
+  bloque.className = "bloque";
+  bloque.style.backgroundImage = `url(${imagenes.tierra})`;
+  bloque.style.backgroundSize = "cover";
   bloque.addEventListener("click", () => excavarBloque(bloque, i));
   zonaJuego.appendChild(bloque);
 }
 
 function excavarBloque(bloque, index) {
   if (bloque.classList.contains("excavado")) return;
+
   bloque.classList.add("excavado");
+  sonidos.excavar.cloneNode().play();
 
   if (bloquesConPepitas.has(index)) {
     pepitas++;
     pepitasEl.innerText = pepitas;
-    bloque.textContent = "💰";
-    sonidoCorrecto.play();
+    bloque.style.backgroundImage = `url(${imagenes.oro})`;
+    sonidos.oro.cloneNode().play();
   } else {
-    bloque.textContent = "🪨";
-    sonidoIncorrecto.play();
+    bloque.style.backgroundImage = `url(${imagenes.piedra})`;
+    sonidos.roca.cloneNode().play();
   }
 
-  // Activar botón rascar si tenemos suficientes pepitas
-  actualizarBotonRascar();
+  btnRascar.disabled = pepitas < 3;
 }
+
 
 function actualizarBotonRascar() {
   document.getElementById("btn-rascar").disabled = pepitas < 3;
