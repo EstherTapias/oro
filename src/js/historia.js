@@ -167,7 +167,7 @@ const imagenes = {
 const sonidos = {
   excavar: new Audio("../public/sounds/dig.mp3"),
   oro: new Audio("../public/sounds/correct.mp3"),
-  roca: new Audio("../public/sounds/stone.mp3")
+  piedra: new Audio("../public/sounds/stone.mp3")
   
 };
 
@@ -202,7 +202,7 @@ function excavarBloque(bloque, index) {
     sonidos.oro.cloneNode().play();
   } else {
     bloque.style.backgroundImage = `url(${imagenes.piedra})`;
-    sonidos.roca.cloneNode().play();
+    sonidos.piedra.cloneNode().play();
   }
 
   btnRascar.disabled = pepitas < 3;
