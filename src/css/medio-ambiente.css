@@ -9,12 +9,12 @@ body {
 /* TITULO */
 .tittle {
     background-color: green;
-    padding: 1rem;
+    padding: 3rem;
 }
 .tittle h1 {
     color: yellow;
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
 }
 
 /* INTRODUCCIÓN */
@@ -46,12 +46,12 @@ body {
 /* SECCIÓN EXTRACCIÓN */
 .extracción {
     background-color: azure;
-    padding: 2rem;
+    padding: 4rem;
     font-size: 30px;
 }
 .titulo h2 {
     color: green;
-    font-size: 40px;
+    font-size: 50px;
     text-align: center;
 }
 
@@ -105,13 +105,26 @@ body {
 /* Reciclaje */
 .reciclaje-oro {
     background-color: yellow;
-    padding: 2rem;
+    padding: 6rem;
     font-size: 30px;
     text-align: center;
 }
 h5 {
     font-size: 40px;
     color: green;
+}
+
+.boton-juego {
+  font-size: 3rem; /* Aumenta el tamaño del emoji */
+  padding: 20px 30px; /* Aumenta el área del botón */
+  margin: 10px;
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.boton-juego:hover {
+  transform: scale(1.1); /* Efecto al pasar el mouse */
 }
 
 /* Responsive */
