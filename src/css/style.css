@@ -125,3 +125,20 @@ footer a {
         transform: translateY(0);
     }
 }
+
+
+@media (max-width: 750px) {
+    .logo-img {
+        padding: 0px;
+        padding-left: 20px;
+    }
+
+    .header-nave-list li {
+        padding: 10px 5px;
+    }
+
+    .header-nave-list li a {
+        padding: 5px 10px;
+        font-size: 15px;
+    }
+}
