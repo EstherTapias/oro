@@ -1,14 +1,11 @@
 fetch('../index.html')
   .then(response => response.text())
   .then(data => {
-    // Extrai o header
     const headerMatch = data.match(/<header[^>]*>([\s\S]*?)<\/header>/i);
     if (headerMatch) {
       document.getElementById('header-nave').innerHTML = headerMatch[1];
-      runLogoAnimation(); // chama a animação depois de inserir o header
+      runLogoAnimation();
     }
-
-    // Extrai o footer
     const footerMatch = data.match(/<footer[^>]*>([\s\S]*?)<\/footer>/i);
     if (footerMatch) {
       document.getElementById('footer').innerHTML = footerMatch[1];
@@ -19,7 +16,11 @@ fetch('../index.html')
 
 
 /*Buttons Yes and No */
-const coinSound = new Audio('../public/sounds/cash-register-fake-88639.mp3');
+const chartSound = new Audio('../public/sounds/cash-register-fake-88639.mp3');
+function playSoundChart() {
+  chartSound.currentTime = 0;
+  chartSound.play();
+}
 const videoContainer = document.getElementById('video-container');
 console.log(videoContainer);
 const videoMP4 = document.getElementById('videoMP4');
@@ -70,13 +71,9 @@ function changeStatusNo() {
   }
 }
 
-function playSound() {
-  coinSound.currentTime = 0;
-  coinSound.play();
-}
 const btnYes = document.getElementById("btn-yes");
 btnYes.addEventListener("click", changeStatusYes);
-btnYes.addEventListener("click", playSound);
+btnYes.addEventListener("click", playSoundChart);
 const btnNo = document.getElementById("btn-no");
 btnNo.addEventListener("click", changeStatusNo);
 
@@ -205,4 +202,74 @@ particlesJS('particles-js', {
   }
 });
 
-/*Game */
+//Modal
+
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const closeBtn = document.querySelector(".gold-storage-modal-close");
+const coinSoundMario = new Audio('../public/sounds/coin-257878.mp3');
+
+function playSoundCountry() {
+  coinSoundMario.currentTime = 0;
+  coinSoundMario.play();
+}
+
+
+const modalContents = {
+  "Estados Unidos": "Guardan la mayoría de su oro en Fort Knox, que es como un búnker ultra blindado en Kentucky.",
+  "Alemania": "Parte del oro está en Fráncfort, pero también tienen reservas en Londres y Nueva York.",
+  "Italia": "Casi todo su oro está en Roma, en el Banco de Italia.",
+  "Portugal": "Guardan su oro en Lisboa, aunque durante décadas tuvieron bastante en Londres.",
+  "España": "El oro está en el Banco de España, en pleno centro de Madrid.",
+  "Brasil": "Parte del oro está en Brasilia, pero una buena cantidad sigue en el extranjero, sobre todo en Londres.",
+  "Paraguai": "Su oro no está en el país. Lo tienen guardado en bancos extranjeros, como el Banco de Inglaterra.",
+  "Peru": "Tienen algo de oro guardado, parte dentro del país y parte fuera. Aunque producen muchísimo oro, no acumulan tanto en reservas."
+};
+
+let cards = document.querySelectorAll(".gold-storage-cards-country");
+
+for (let i = 0; i < cards.length; i++) {
+  let card = cards[i];
+
+  card.onclick = function () {
+    let country = card.querySelector("h3").innerText;
+    document.getElementById("modal-title").innerText = country;
+
+    let description = modalContents[country];
+    document.getElementById("modal-description").innerText = description;
+    document.getElementById("modal").style.display = "block";
+
+    rainCoins();
+    playSoundCountry();
+  };
+}
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+
+//Rain coins with click modal
+function rainCoins() {
+  const container = document.getElementById("coin-rain-container");
+  const coinsAlreadyExist = container.querySelectorAll(".golde-coin");
+  for (let index = coinsAlreadyExist - 1; index >= 0; index--) {
+    coinsAlreadyExist[index].remove();
+
+  }
+
+  const totalCoins = 30;
+  for (let i = 0; i < totalCoins; i++) {
+    const coin = document.createElement("div");
+    coin.classList.add("golde-coin");
+    coin.style.left = Math.random() * 100 + "%";
+    coin.style.animationDelay = (Math.random() * 2) + "s";
+    container.appendChild(coin);
+  }
+}

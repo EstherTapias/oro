@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /*a {
     text-decoration: none;
     cursor: pointer;
@@ -99,10 +103,9 @@ body {
 */
 main {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1300px;
     display: flex;
-    margin-left: 25%;
-    margin-right: auto;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
     font-family: 'Montserrat', sans-serif;
@@ -111,14 +114,16 @@ main {
 
 .titles {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 80px;
     font-weight: 800;
     color: #a57600;
     font-size: 1.5rem;
+    text-transform: uppercase;
 }
 
 .subtitles {
-    margin-top: 40px;
+    margin-top: 80px;
+    text-align: center;
 }
 
 .intro-text-page {
@@ -126,11 +131,12 @@ main {
     margin-top: 40px;
     gap: 40px;
     align-items: center;
+    margin-left: 180px;
 }
 
 .intro-text-page h2 {
-    flex: 1;
     font-size: 1.3rem;
+
 }
 
 #chest-img {
@@ -139,11 +145,17 @@ main {
     flex-shrink: 0;
 }
 
+.char-video-container {
+    display: flex;
+    justify-content: center;
+}
+
 .container-btn {
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 40px;
+    margin-top: 80px;
 }
 
 #btn-yes {
@@ -162,6 +174,7 @@ main {
 
 #btn-yes:hover {
     transform: scale(1.5);
+    background-color: #ffbd52;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 10px;
 }
 
@@ -209,11 +222,9 @@ main {
 }
 
 #video-container {
-    width: 80%;
     display: flex;
     justify-content: center;
     padding: 20px;
-    margin: 0 auto;
 }
 
 #videoMP4 {
@@ -221,9 +232,122 @@ main {
     height: auto;
 }
 
-.gold-store-cards {
+/*Storage gold cards*/
+
+.gold-storage-cards {
+    margin-top: 40px;
+    margin-bottom: 40px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 20px;
+}
+
+.gold-storage-cards-country {
+    padding: 16px;
+    background-color: #f9a825;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: rgba(31, 24, 3, 0.24) 0px 6px 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
+}
+
+.gold-storage-cards-country:hover {
+    background-color: #ffbd52;
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 10px;
+}
+
+/* Modal */
+
+.gold-storage-modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.gold-storage-modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 40px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-title {
+    margin-bottom: 10px;
+}
+
+.modal-detail {
+    color: #f9a825;
+}
+
+.modal-description {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.gold-storage-modal-close {
+    position: absolute;
+    right: 15px;
+    top: 0px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #3e2f00;
+    transition: transform 0.2s;
+}
+
+.gold-storage-modal-close:hover,
+.gold-storage-modal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+
+/*Coins*/
+
+#coin-rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.golde-coin {
+    position: absolute;
+    top: -25px;
+    width: 40px;
+    height: 40px;
+    background-image: url("../../public/img/round-icons-xmyOuAxAI-E-unsplash.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: rainCoin 10s linear forwards;
+    z-index: 10;
+}
+
+@keyframes rainCoin {
+    to {
+        transform: translateY(85vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 /*footer {
