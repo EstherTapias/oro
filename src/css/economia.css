@@ -134,10 +134,6 @@ main {
     margin-left: 180px;
 }
 
-.intro-text-page h2 {
-    font-size: 1.3rem;
-
-}
 
 #chest-img {
     max-width: 250px;
@@ -397,3 +393,54 @@ footer a {
         transform: translateY(0);
     }
 }*/
+
+@media (max-width: 450px) {
+    .gold-reserves-chart {
+        height: 400px;
+        max-width: 345px;
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .intro-text-page h2 {
+        font-size: 1rem;
+    }
+
+    .intro-text-page {
+        margin: 40px;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .subtitles {
+        margin-top: 40px;
+        font-size: 1.3rem;
+    }
+
+    #chest-img {
+        max-width: 150px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .container-btn {
+        margin-top: 40px;
+    }
+
+    .gold-storage-cards {
+        margin-top: 40px;
+    }
+
+    .gold-storage-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 750px) and (max-width: 825px) {
+    .intro-text-page h2 {
+        font-size: 1.2rem;
+    }
+
+}
