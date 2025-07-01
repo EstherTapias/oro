@@ -32,12 +32,11 @@ El objetivo es crear un recurso educativo que combina información, interacción
 
 | Nombre                  | Sección                      | GitHub                                              |
 |-------------------------|------------------------------|-----------------------------------------------------|
-| **Esther Tapias**         | Historia del Oro              | [github.com/tuusuario](https://github.com/tuusuario) |
-| **MariCarmen**         | Química| [github.com/compa1](https://github.com/compa1)      |
-| **Mariany**         | Economía    | [github.com/compa2](https://github.com/compa2)      |
-| **Jessica**         | Medio Ambiente          | [github.com/compa3](https://github.com/compa3)      |
-| **Julia**         | Usos| [github.com/compa4](https://github.com/compa4)    |
-| **Compañera 4**         | Creadoras| [github.com/compa4](https://github.com/compa4)    |
+| **Esther Tapias**         | Historia del Oro              | [https://github.com/EstherTapias](https://github.com/EstherTapias) |
+| **MariCarmen Tajuelo**         | Química| [https://github.com/CarmenTajuelo](https://github.com/CarmenTajuelo)      |
+| **Mariany Araujo**         | Economía    | [https://github.com/marianyarj](https://github.com/marianyarj)      |
+| **Jessica Torres**         | Medio Ambiente  y Creadoras        | [https://github.com/Jessitc](https://github.com/Jessitc)     |
+| **Julia Zarco**         | Usos| [https://github.com/juliazmor](https://github.com/juliazmor)    |
 
 ---
 
@@ -45,7 +44,7 @@ El objetivo es crear un recurso educativo que combina información, interacción
 
 1. Clonar este repositorio:
    ```bash
-   git clone https://github.com/tuusuario/proyecto-oro.git
+   git clone https://github.com/EstherTapias/oro.git
 
 2. Abrir index.html (o la página principal) en un navegador moderno.
 
