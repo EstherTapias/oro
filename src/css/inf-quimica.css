@@ -1,8 +1,9 @@
  body {
      margin: 0;
-     background-color: #ffffff;
+     background-color: rgba(218, 165, 32, 0.371);
      /* Fondo negro para que brille más */
      font-family: Arial, sans-serif;
+
  }
 
  header {
@@ -16,6 +17,27 @@
      margin-top: 20px;
  }
 
+ main {
+
+ }
+
+ h2 {
+    color: rgb(161, 106, 42);
+    text-align: center;
+    margin: 2rem;
+    font-size: 2rem;
+ }
+
+ table {
+    margin: 0 auto;
+ }
+
+ td {
+    padding: 10px;
+    border: 1px solid #ccc;
+ }
+
+ /* ---- DYNAMIC CARROUSEL ---- */
  .carousel {
      display: flex;
      animation: slide 25s infinite linear;
@@ -29,15 +51,15 @@
  }
 
  .card {
-     border: 2px solid gold;
+     border: 2px solid #f9a825;
      border-radius: 12px;
      padding: 20px 60px;
      /*background-color: rgba(0, 0, 0, 0.3); /* Fondo transparente oscuro */
-     background-color: transparent;
-     box-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 40px gold;
+     background-color: #916f0c;
+     box-shadow: 0 0 10px #f9a825, 0 0 20px #f9a825, 0 0 40px #f9a825;
      color: white;
      text-align: center;
-     width: 300px;
+     width: 400px;
      height: 200px;
      display: flex;
 
@@ -107,3 +129,7 @@
          transform: translateX(-400%);
      }
  }
+
+ /* ---- END DYNAMIC CARROUSEL ---- */
+
+
