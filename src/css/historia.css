@@ -1,51 +1,61 @@
+/* Establece el tipo de fuente, color de fondo, color de texto y elimina los márgenes por defecto */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #fff9db;
-  color: #4e342e;
-  margin: 0;
+  background-color: #fff9db; /* Color crema claro */
+  color: #4e342e; /* Marrón oscuro */
+  margin: 0; /* Elimina los márgenes por defecto */
 }
 
+/* Agrega un padding interno a todo el contenido principal */
 main {
   padding: 20px;
 }
 
+/* Estilo para las secciones de contenido */
 section {
-  margin-bottom: 40px;
-  background-color: #fff3cd;
-  padding: 20px;
-  border-radius: 12px;
+  margin-bottom: 40px; /* Separación entre secciones */
+  background-color: #fff3cd; /* Fondo amarillo claro */
+  padding: 20px; /* Espacio interno */
+  border-radius: 12px; /* Bordes redondeados */
 }
 
+/* Tamaño reducido por defecto del mapa */
 #mapa.mapa-pequeño {
   height: 300px;
-  transition: height 0.3s ease;
+  transition: height 0.3s ease; /* Animación suave al cambiar tamaño */
   margin-top: 10px;
-  border: 2px solid #b8860b;
+  border: 2px solid #b8860b; /* Borde dorado oscuro */
   border-radius: 8px;
 }
 
+/* Tamaño grande del mapa cuando se expande */
 #mapa.mapa-grande {
   height: 500px;
 }
 
+/* Estilo general para botones */
 button {
   margin: 5px;
   padding: 8px 12px;
   border: none;
-  background-color: #fdd835;
+  background-color: #fdd835; /* Amarillo */
   border-radius: 6px;
   cursor: pointer;
 }
 
+/* Cambia el color del botón al pasar el cursor */
 button:hover {
   background-color: #fbc02d;
 }
 
+/* Estilo para el número de pepitas */
 #pepitas {
   font-weight: bold;
   font-size: 1.2em;
-  color: #d4af37;
+  color: #d4af37; /* Color dorado */
 }
+
+/* Estilo del contador flotante (siempre visible en pantalla) */
 #contador-flotante {
   position: fixed;
   top: 20px;
@@ -55,54 +65,62 @@ button:hover {
   padding: 10px;
   border-radius: 8px;
   font-weight: bold;
-  z-index: 999;
+  z-index: 999; /* Asegura que esté encima de otros elementos */
 }
+
+/* Zona del juego de excavación: rejilla de 5 columnas */
 #zona-juego {
   display: grid;
   grid-template-columns: repeat(5, 60px);
-  gap: 10px;
+  gap: 10px; /* Espacio entre bloques */
   margin: 20px 0;
 }
 
+/* Estilo para cada bloque de tierra */
 .bloque {
   width: 60px;
   height: 60px;
-  background-color: #a1887f;
-  border: 2px solid #5d4037;
+  background-color: #a1887f; /* Marrón claro */
+  border: 2px solid #5d4037; /* Borde más oscuro */
   cursor: pointer;
   border-radius: 4px;
 }
 
+/* Cambia el aspecto del bloque cuando ya ha sido excavado */
 .bloque.excavado {
   background-color: #d7ccc8;
   cursor: default;
 }
 
+/* Texto que aparece cuando se rasca una carta */
 #resultado-rasca {
   margin-top: 10px;
   font-style: italic;
 }
 
+/* Contenedor de las cartas "rasca y gana" */
 #cartas-container {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 10px; /* Espacio entre cartas */
+  flex-wrap: wrap; /* Permite que las cartas bajen si no caben */
   margin-top: 20px;
 }
 
+/* Estilo de cada carta */
 .carta {
   width: 100px;
   height: 140px;
   background-color: #f8f8f8;
-  border: 2px solid #d4af37;
+  border: 2px solid #d4af37; /* Dorado */
   border-radius: 8px;
   cursor: pointer;
   position: relative;
-  overflow: hidden;
-  background-image: url('../public/img/carta-rascar.png');
+  overflow: hidden; /* Oculta lo que sobresale */
+  background-image: url('../public/img/carta-rascar.png'); /* Imagen de carta tapada */
   background-size: cover;
 }
 
+/* Cuando se revela el contenido de la carta */
 .carta.revelada {
   background-image: none;
   background-color: white;
@@ -113,7 +131,3 @@ button:hover {
   text-align: center;
   padding: 5px;
 }
-
-
-
-  

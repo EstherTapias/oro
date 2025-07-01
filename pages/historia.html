@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Configuración básica del documento HTML -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Historia del Oro</title>
+  
+  <!-- Archivos CSS locales para los estilos específicos de la página -->
   <link rel="stylesheet" href="../src/css/historia.css" />
   <link rel="stylesheet" href="../src/css/style.css">
 
@@ -11,79 +14,106 @@
   <!-- <link rel="stylesheet" href="../libs/leaflet/leaflet.css" /> -->
 
   <!-- Leaflet CSS CDN (comenta si usas local) -->
+  <!-- Leaflet es una librería para mapas interactivos -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <!--Font Family-->
+  
+  <!--Font Family - Configuración de fuentes de Google Fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <!-- Fuente Montserrat para el texto de la página -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet">
 
 </head>
 <body>
-<header id="header-nave"></header>
+  <header id="header-nave"></header>
 
-   <!-- Contador flotante -->
+   <!-- Contador flotante para mostrar las pepitas de oro recolectadas -->
   <div id="contador-flotante">
     💰 Pepitas de oro: <span id="pepitas">0</span>
    </div>
 
   <main>
+    <!-- Sección que explica el origen del nombre "oro" -->
     <section id="nombre">
       <h1>¿De dónde viene el nombre del oro?</h1>
       <p>El nombre "oro" viene del latín <strong>aurum</strong>, que significa "brillo del amanecer". Por eso su símbolo químico es <strong>Au</strong>.</p>
     </section>
 
+    <!-- Sección sobre el origen del oro y mapa de países productores -->
     <section id="origen">
       <h2>¿De dónde viene el oro?</h2>
       <p>El oro se originó en el universo, en explosiones estelares, y llegó a la Tierra mediante meteoritos hace millones de años.</p>
+      
+      <!-- Contenedor del título del mapa y botón para expandirlo -->
       <div id="mapaTitulo">
         <h3>🌍 Mapa de países productores de oro</h3>
         <button id="btn-expandir-mapa">🔍 Expandir mapa</button>
       </div>
+      
+      <!-- Contenedor donde se renderiza el mapa interactivo -->
       <div id="mapa" class="mapa-pequeño"></div>
     </section>
 
+    <!-- Sección sobre métodos de extracción del oro -->
     <section id="extraccion">
       <h2>¿Cómo se extrae el oro?</h2>
       <p>El oro puede extraerse de minas o ríos. Hoy en día, se usan procesos como la cianuración o la amalgamación.</p>
     </section>
 
+    <!-- Sección del quiz interactivo sobre conocimientos del oro -->
     <section id="quiz">
       <h2>🧠 ¿Cuánto sabes sobre el oro?</h2>
       
+      <!-- Contenedor donde se generan las preguntas del quiz dinámicamente -->
       <div id="quiz-container">
         <!-- Preguntas y respuestas se generan dinámicamente -->
       </div>
 
+      <!-- Párrafo para mostrar el resultado del quiz -->
       <p id="resultado"></p>
+      <!-- Botón para reiniciar el quiz -->
       <button id="btn-reset">🔄 Reiniciar quiz</button>
     </section>
 
   </main>
+  
+  <!-- Sección del juego de excavación para encontrar pepitas -->
   <section id="juego">
     <h2>⛏️ ¡Excava para encontrar pepitas!</h2>
     <p>Haz clic en los bloques para excavar. Algunas casillas esconden pepitas de oro 💰</p>
+    <!-- Contenedor donde se genera la cuadrícula del juego -->
     <div id="zona-juego"></div>
+    <!-- Botón para reiniciar el juego de excavación -->
     <button id="btn-reset-excavacion">🔁 Reiniciar excavación</button>
   </section>
   
+  <!-- Sección del juego de rascar cartas -->
   <section id="rasca">
     <h2>🎁 Rasca y descubre un dato curioso</h2>
     <p>Usa 2 pepitas para rascar cada carta.</p>
+    <!-- Contenedor donde se generan las cartas para rascar -->
     <div id="cartas-container"></div>
+    <!-- Botón para rascar una carta (cuesta 3 pepitas) -->
     <button id="btn-rascar">Rascar Carta (3 pepitas)</button>
+    <!-- Párrafo para mostrar el resultado de la carta rascada -->
     <p id="resultado-rasca"></p>
   </section>
+  
+  <!-- Footer que se carga dinámicamente con JavaScript -->
   <footer id="footer"></footer>
 
   <!-- Leaflet JS local (descomenta si usas local) -->
   <!-- <script src="../libs/leaflet/leaflet.js"></script> -->
 
   <!-- Leaflet JS CDN (comenta si usas local) -->
+  <!-- JavaScript de Leaflet para la funcionalidad del mapa -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+  <!-- Archivos JavaScript locales -->
+  <!-- historia.js: contiene la lógica específica de esta página -->
   <script src="../src/js/historia.js"></script>
+  <!-- index.js: contiene funcionalidades generales del sitio -->
   <script src="../src/js/index.js"></script>
 </body>
 </html>
-
