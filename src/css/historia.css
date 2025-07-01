@@ -142,7 +142,6 @@ button:disabled {
 
 /* Contenido inicial de la carta antes de rascar */
 .carta::before {
-  content: "🎁";
   font-size: 3em;
   color: #8b4513;
 }
