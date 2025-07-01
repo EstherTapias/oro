@@ -7,7 +7,9 @@ body {
 
 .section {
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .grid-item {
@@ -18,20 +20,6 @@ body {
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
-}
-
-/*Pantallas medianas (tablets)*/
-@media (max-width: 768px) {
-    .grid-item {
-        flex: 0 0 50%;
-    }
-}
-
-/*Pantallas pequeñas (móviles)*/
-@media (max-width: 480px) {
-    .grid-item {
-        flex: 0 0 100%;
-    }
 }
 
 #sunPic {
@@ -128,4 +116,18 @@ body {
 .boton-trivia:hover {
     transform: scale(1.05);
     background-color: #F1AE06;
+}
+
+/*Pantallas medianas (tablets)*/
+@media (max-width: 768px) {
+    .grid-item {
+        flex: 0 0 50%;
+    }
+}
+
+/*Pantallas pequeñas (móviles)*/
+@media (max-width: 480px) {
+    .grid-item {
+        flex: 0 0 100%;
+    }
 }
