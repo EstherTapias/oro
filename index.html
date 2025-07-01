@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/style.css">
     <script src="./src/js/index.js" defer></script>
-    <title>Home</title>
+    <title>Historia del Oro</title>
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../src/css/historia.css" />
+    <link rel="stylesheet" href="../src/css/style.css">
+
+    <!-- Leaflet CSS CDN para el mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -26,10 +38,111 @@
             </ul>
         </nav>
     </header>
+    
 
+    <!-- Contador flotante de pepitas -->
+    <div id="contador-flotante" aria-live="polite">
+      💰 Pepitas de oro: <span id="pepitas">0</span>
+    </div>
+  
     <main>
-
+      <!-- Sección sobre el nombre del oro -->
+      <section id="nombre">
+        <h1>¿De dónde viene el nombre del oro?</h1>
+        <p>
+          El nombre <strong>"oro"</strong> proviene del latín <strong>aurum</strong>, que significa "brillo del amanecer". Por eso su símbolo químico es <strong>Au</strong> en la tabla periódica. 
+        </p>
+        <p>
+          El oro ha sido valorado por las civilizaciones desde la antigüedad, utilizándose como moneda, joya y símbolo de poder y riqueza.
+        </p>
+      </section>
+  
+      <!-- Sección sobre el origen del oro y mapa -->
+      <section id="origen">
+        <h2>¿De dónde viene el oro?</h2>
+        <p>
+          El oro se formó hace miles de millones de años en explosiones de supernovas y colisiones de estrellas de neutrones. Estos eventos cósmicos dispersaron el oro por el espacio, y parte de ese material llegó a la Tierra a través de meteoritos.
+        </p>
+        <p>
+          Hoy en día, el oro se encuentra en la corteza terrestre, principalmente en vetas de roca y en ríos, donde ha sido arrastrado por el agua a lo largo de los siglos.
+        </p>
+        <div id="mapaTitulo">
+          <h3>🌍 Mapa de países productores de oro</h3>
+          <button id="btn-expandir-mapa" type="button" aria-label="Expandir o reducir el mapa">🔍 Expandir mapa</button>
+        </div>
+        <div id="mapa" class="mapa-pequeño" aria-label="Mapa interactivo de países productores de oro"></div>
+        <div class="curiosidades">
+          <strong>Curiosidad:</strong> Sudáfrica fue durante décadas el mayor productor mundial de oro, pero actualmente China, Australia y Rusia lideran la producción.
+        </div>
+      </section>
+  
+      <!-- Sección sobre la extracción del oro -->
+      <section id="extraccion">
+        <h2>¿Cómo se extrae el oro?</h2>
+        <p>
+          El oro puede extraerse de dos formas principales: 
+          <ul>
+            <li><strong>Minería de roca dura:</strong> Se excava la roca para extraer el mineral que contiene oro.</li>
+            <li><strong>Lavado en ríos:</strong> Se utiliza agua para separar las partículas de oro del sedimento.</li>
+          </ul>
+        </p>
+        <p>
+          Hoy en día, se emplean técnicas avanzadas como la <strong>cianuración</strong> (disolver el oro con cianuro) y la <strong>amalgamación</strong> (usar mercurio para separar el oro), aunque estas pueden tener impacto ambiental.
+        </p>
+        <div class="curiosidades">
+          <strong>Dato curioso:</strong> ¡Una sola tonelada de roca puede contener menos de 5 gramos de oro!
+        </div>
+      </section>
+  
+      <!-- Quiz interactivo -->
+      <section id="quiz">
+        <h2>🧠 ¿Cuánto sabes sobre el oro?</h2>
+        <p>
+          Pon a prueba tus conocimientos sobre el oro respondiendo a las siguientes preguntas. ¡Gana pepitas de oro por cada respuesta correcta!
+        </p>
+        <div id="quiz-container"></div>
+        <p id="resultado"></p>
+        <button id="btn-reset" type="button">🔄 Reiniciar quiz</button>
+      </section>
     </main>
+    
+    <!-- Juego de excavación -->
+    <section id="juego">
+      <h2>⛏️ ¡Excava para encontrar pepitas!</h2>
+      <p>
+        Haz clic en los bloques para excavar. Algunas casillas esconden pepitas de oro <span aria-label="pepitas de oro">💰</span>. 
+        <br>
+        <strong>Instrucciones:</strong> Cada vez que encuentres una pepita, tu contador aumentará. ¡Intenta encontrarlas todas!
+      </p>
+      <div id="zona-juego"></div>
+      <button id="btn-reset-excavacion" type="button">🔁 Reiniciar excavación</button>
+    </section>
+    
+    <!-- Juego de rascar cartas -->
+    <section id="rasca">
+      <h2>🎁 Rasca y descubre un dato curioso</h2>
+      <p>
+        Usa <strong>3 pepitas</strong> para rascar cada carta y descubrir un dato interesante sobre el oro.<br>
+        <strong>¿Cuántos datos podrás descubrir?</strong>
+      </p>
+      <div id="cartas-container">
+        <!-- Ejemplo de carta (el JS debe generar varias así) -->
+        <div class="carta">
+          <div class="contenido-curioso">
+            <div>¡Dato curioso sobre el oro!</div>
+            <span class="info-extra">El oro es tan maleable que puede aplanarse en hojas de 0.00001 cm de grosor.</span>
+          </div>
+        </div>
+        <!-- ...más cartas generadas por JS... -->
+      </div>
+      <button id="btn-rascar" type="button">Rascar Carta (3 pepitas)</button>
+      <button id="btn-reset-rasca" type="button">🔄 Reiniciar cartas</button>
+      <p id="resultado-rasca"></p>
+    </section>
+    
+    
+    
+    
     <footer id="footer">
         <p>Este proyecto ha sido desarrollado como parte del programa de formación de FactoriaF5</p>
         <p>© 2025 Tabla Periódica Interactiva | Elemento Oro | <a
@@ -39,6 +152,11 @@
                 src="https://femcoders.factoriaf5.org/wp-content/uploads/2021/12/Logo-FemCodersF5-color-300x224.png"
                 alt="logo femcoders factoriaf5"></a>
     </footer>
+      <!-- Leaflet JS CDN para el mapa -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- JavaScript local -->
+    <script src="../src/js/historia.js"></script>
+    <script src="../src/js/index.js"></script>
 </body>
 
 </html>

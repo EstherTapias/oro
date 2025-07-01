@@ -1,66 +1,22 @@
-// Espera a que todo el contenido del DOM se haya cargado antes de ejecutar el código
+// Espera a que todo el contenido del DOM esté cargado antes de ejecutar el script
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Inicializa la cantidad de pepitas a 0
-  let pepitas = 0;
+  // --- VARIABLES GLOBALES ---
+  let pepitas = 0; // Contador de pepitas de oro ganadas
+  let aciertos = 0; // Contador de respuestas correctas en el quiz
+  let preguntasActuales = []; // Preguntas seleccionadas aleatoriamente para el quiz
+  let curiosidadesActuales = []; // Curiosidades seleccionadas aleatoriamente para las cartas
 
-  // Inicializa el número de aciertos en el quiz a 0
-  let aciertos = 0;
-
-  // Array donde se almacenan las preguntas del quiz que se mostrarán
-  let preguntasActuales = [];
-
-  // Array donde se almacenan las curiosidades rascables que se mostrarán
-  let curiosidadesActuales = [];
-
-  // Referencia al elemento HTML que muestra la cantidad de pepitas
+  // --- REFERENCIAS AL DOM ---
   const pepitasEl = document.getElementById("pepitas");
-
-  // Contenedor principal del quiz
   const contenedor = document.getElementById("quiz-container");
-
-  // Elemento donde se mostrará el mensaje final del quiz
   const resultado = document.getElementById("resultado");
-
-  // Zona donde se mostrarán los bloques para excavar
   const zonaJuego = document.getElementById("zona-juego");
-
-  // Botón que permite rascar una carta
   const btnRascar = document.getElementById("btn-rascar");
-
-  // Botón que reinicia el juego de excavación
   const btnResetExcavacion = document.getElementById("btn-reset-excavacion");
-
-  // Contenedor donde se mostrarán las cartas rascables
   const cartasContainer = document.getElementById("cartas-container");
 
-  // Carga dinámica del header y footer desde index.html
-  fetch('../index.html')
-    .then(response => response.text()) // Convierte la respuesta a texto
-    .then(data => {
-      const headerMatch = data.match(/<header[^>]*>([\s\S]*?)<\/header>/i); // Busca el header
-
-      // Si encuentra el <header> lo inserta en el documento actual
-      if (headerMatch) {
-        document.getElementById('header-nave').innerHTML = headerMatch[1];
-
-        // Si existe la función de animación del logo, la ejecuta
-        if (typeof runLogoAnimation === 'function') {
-          runLogoAnimation();
-        }
-      }
-
-      // Busca el <footer> dentro del HTML
-      const footerMatch = data.match(/<footer[^>]*>([\s\S]*?)<\/footer>/i);
-
-      // Si lo encuentra, lo inserta en el documento actual
-      if (footerMatch) {
-        document.getElementById('footer').innerHTML = footerMatch[1];
-      }
-    })
-    .catch(error => console.log('Error cargando header/footer:', error)); // Muestra error si falla
-
-
+  
   // --- MAPA INTERACTIVO (Leaflet) ---
   const mapa = L.map("mapa").setView([20, 0], 2); // Inicializa vista general del mundo
 
