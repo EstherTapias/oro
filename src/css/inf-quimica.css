@@ -17,24 +17,22 @@
      margin-top: 20px;
  }
 
- main {
-
- }
+ main {}
 
  h2 {
-    color: rgb(161, 106, 42);
-    text-align: center;
-    margin: 2rem;
-    font-size: 2rem;
+     color: rgb(161, 106, 42);
+     text-align: center;
+     margin: 2rem;
+     font-size: 2rem;
  }
 
  table {
-    margin: 0 auto;
+     margin: 0 auto;
  }
 
  td {
-    padding: 10px;
-    border: 1px solid #ccc;
+     padding: 10px;
+     border: 1px solid #ccc;
  }
 
  /* ---- DYNAMIC CARROUSEL ---- */
@@ -133,3 +131,11 @@
  /* ---- END DYNAMIC CARROUSEL ---- */
 
 
+ /*<!--PERIODIC TABLE-->*/
+ img {
+     width: 50%;
+     display: block;
+     margin: 0 auto;
+ }
+
+ /* ---- END OF PERIODIC TABLE ---- */
