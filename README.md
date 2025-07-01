@@ -36,7 +36,7 @@ El objetivo es crear un recurso educativo que combina información, interacción
 | **MariCarmen Tajuelo**         | Química| [https://github.com/CarmenTajuelo](https://github.com/CarmenTajuelo)      |
 | **Mariany Araujo**         | Economía    | [https://github.com/marianyarj](https://github.com/marianyarj)      |
 | **Jessica Torres**         | Medio Ambiente  y Creadoras        | [https://github.com/Jessitc](https://github.com/Jessitc)     |
-| **Julia**         | Usos| [https://github.com/juliazmor](https://github.com/juliazmor)    |
+| **Julia Zarco**         | Usos| [https://github.com/juliazmor](https://github.com/juliazmor)    |
 
 ---
 
