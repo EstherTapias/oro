@@ -8,7 +8,6 @@ body {
 }
 
 .section {
-    /*border: 1px solid black*/
     display: flex;
     flex-wrap: wrap
 }
@@ -19,9 +18,22 @@ body {
     flex-wrap: wrap;
     height: 200px;
     box-sizing: border-box;
-    /*border: 1px solid #232f74;*/
     justify-content: center;
     align-items: center;
+}
+
+/*Pantallas medianas (tablets)*/
+@media (max-width: 768px) {
+    .grid-item {
+        flex: 0 0 50%;
+    }
+}
+
+/*Pantallas pequeñas (móviles)*/
+@media (max-width: 480px) {
+    .grid-item {
+        flex: 0 0 100%;
+    }
 }
 
 #sunPic {
@@ -47,8 +59,6 @@ body {
 .flip-card {
     width: 100%;
     height: 100%;
-    /*background-color: green;
-    border:3px solid purple;*/
 }
 
 .flip-card-inner {
@@ -58,7 +68,6 @@ body {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    /*background-color: yellow;*/
 }
 
 .flip-card-front,

@@ -7,11 +7,11 @@ body {
     box-sizing: border-box;
 }
 /* TITULO */
-.tittle {
+.title {
     background-color: green;
     padding: 3rem;
 }
-.tittle h1 {
+.title h1 {
     color: yellow;
     text-align: center;
     font-size: 50px;
@@ -49,7 +49,7 @@ body {
     padding: 4rem;
     font-size: 30px;
 }
-.titulo h2 {
+.title h2 {
     color: green;
     font-size: 50px;
     text-align: center;
