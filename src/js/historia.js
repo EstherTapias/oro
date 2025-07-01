@@ -1,48 +1,75 @@
-// Espera a que el DOM esté completamente cargado antes de ejecutar el código
+// Espera a que todo el contenido del DOM se haya cargado antes de ejecutar el código
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Variables globales ---
-  let pepitas = 0; // Contador de pepitas ganadas (compartido entre todos los juegos)
-  let aciertos = 0; // Contador de respuestas correctas del quiz
-  let preguntasActuales = []; // Array para almacenar las preguntas actuales del quiz
-  let curiosidadesActuales = []; // Array para almacenar las curiosidades actuales
 
-  // Referencias a elementos del DOM
+  // Inicializa la cantidad de pepitas a 0
+  let pepitas = 0;
+
+  // Inicializa el número de aciertos en el quiz a 0
+  let aciertos = 0;
+
+  // Array donde se almacenan las preguntas del quiz que se mostrarán
+  let preguntasActuales = [];
+
+  // Array donde se almacenan las curiosidades rascables que se mostrarán
+  let curiosidadesActuales = [];
+
+  // Referencia al elemento HTML que muestra la cantidad de pepitas
   const pepitasEl = document.getElementById("pepitas");
+
+  // Contenedor principal del quiz
   const contenedor = document.getElementById("quiz-container");
+
+  // Elemento donde se mostrará el mensaje final del quiz
   const resultado = document.getElementById("resultado");
+
+  // Zona donde se mostrarán los bloques para excavar
   const zonaJuego = document.getElementById("zona-juego");
+
+  // Botón que permite rascar una carta
   const btnRascar = document.getElementById("btn-rascar");
+
+  // Botón que reinicia el juego de excavación
   const btnResetExcavacion = document.getElementById("btn-reset-excavacion");
+
+  // Contenedor donde se mostrarán las cartas rascables
   const cartasContainer = document.getElementById("cartas-container");
 
-  // --- Carga dinámica del header y footer desde index.html ---
+  // Carga dinámica del header y footer desde index.html
   fetch('../index.html')
-  .then(response => response.text())
-  .then(data => {
-    const headerMatch = data.match(/<header[^>]*>([\s\S]*?)<\/header>/i);
-    if (headerMatch) {
-      document.getElementById('header-nave').innerHTML = headerMatch[1];
-      // Ejecuta la animación del logo si la función existe
-      if (typeof runLogoAnimation === 'function') {
-        runLogoAnimation();
+    .then(response => response.text()) // Convierte la respuesta a texto
+    .then(data => {
+      const headerMatch = data.match(/<header[^>]*>([\s\S]*?)<\/header>/i); // Busca el header
+
+      // Si encuentra el <header> lo inserta en el documento actual
+      if (headerMatch) {
+        document.getElementById('header-nave').innerHTML = headerMatch[1];
+
+        // Si existe la función de animación del logo, la ejecuta
+        if (typeof runLogoAnimation === 'function') {
+          runLogoAnimation();
+        }
       }
-    }
 
-    const footerMatch = data.match(/<footer[^>]*>([\s\S]*?)<\/footer>/i);
-    if (footerMatch) {
-      document.getElementById('footer').innerHTML = footerMatch[1];
-    }
-  })
-  .catch(error => console.log('Error cargando header/footer:', error));
-  
-  // --- Configuración del Mapa Leaflet ---
-  const mapa = L.map("mapa").setView([20, 0], 2);
+      // Busca el <footer> dentro del HTML
+      const footerMatch = data.match(/<footer[^>]*>([\s\S]*?)<\/footer>/i);
 
+      // Si lo encuentra, lo inserta en el documento actual
+      if (footerMatch) {
+        document.getElementById('footer').innerHTML = footerMatch[1];
+      }
+    })
+    .catch(error => console.log('Error cargando header/footer:', error)); // Muestra error si falla
+
+
+  // --- MAPA INTERACTIVO (Leaflet) ---
+  const mapa = L.map("mapa").setView([20, 0], 2); // Inicializa vista general del mundo
+
+  // Carga los tiles (capas) desde OpenStreetMap
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: 'Mapa: OpenStreetMap'
   }).addTo(mapa);
 
-  // países productores de oro con información detallada
+  // Lista de países productores de oro con coordenadas e información
   const productores = [
     { pais: "China", coords: [35.8617, 104.1954], info: "🏆 China produce más de 400 toneladas al año. Líder mundial desde 2007." },
     { pais: "Australia", coords: [-25.2744, 133.7751], info: "🇦🇺 Segundo mayor productor con 320 toneladas anuales. Rica en minas a cielo abierto." },
@@ -56,17 +83,19 @@ document.addEventListener("DOMContentLoaded", () => {
     { pais: "México", coords: [23.6345, -102.5528], info: "🇲🇽 Rico en minerales preciosos. Sonora y Zacatecas son estados mineros importantes." }
   ];
 
+  // Añade los marcadores al mapa con su información
   productores.forEach(p => {
     L.marker(p.coords).addTo(mapa).bindPopup(`<strong>${p.pais}</strong><br>${p.info}`);
   });
 
+  // Botón para expandir el mapa a pantalla completa (cambia clase CSS)
   document.getElementById("btn-expandir-mapa").addEventListener("click", () => {
     const mapaDiv = document.getElementById("mapa");
-    mapaDiv.classList.toggle("mapa-grande");
-    mapa.invalidateSize();
+    mapaDiv.classList.toggle("mapa-grande"); // Cambia el tamaño
+    mapa.invalidateSize(); // Recalcula el tamaño del mapa para que no se desplace
   });
 
-  // --- Efectos de sonido ---
+  // --- EFECTOS DE SONIDO ---
   const sonidos = {
     correcto: new Audio("../public/sounds/correct.mp3"),
     incorrecto: new Audio("../public/sounds/error.mp3"),
@@ -75,17 +104,18 @@ document.addEventListener("DOMContentLoaded", () => {
     piedra: new Audio("../public/sounds/stone.mp3")
   };
 
-  // Función para reproducir sonido con manejo de errores
+  // Función para reproducir un sonido (con manejo de errores)
   function reproducirSonido(sonido) {
     try {
-      const audio = sonido.cloneNode();
+      const audio = sonido.cloneNode(); // Crea copia para permitir múltiples sonidos
       audio.play().catch(e => console.log('No se pudo reproducir el sonido:', e));
     } catch (e) {
       console.log('Error con el sonido:', e);
     }
   }
 
-  // --- AMPLIADO: Banco de preguntas más extenso para el Quiz ---
+  // --- QUIZ SOBRE EL ORO ---
+  // Lista de preguntas con sus respuestas, cada una tiene una correcta
   const bancoPreguntas = [
     {
       pregunta: "¿Cuál es el símbolo químico del oro?",
@@ -201,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return arr.sort(() => Math.random() - 0.5);
   }
 
-  // NUEVO: Función para seleccionar preguntas aleatorias del banco
+  // Función para seleccionar preguntas aleatorias del banco
   function seleccionarPreguntasAleatorias() {
     const preguntasMezcladas = mezclarArray([...bancoPreguntas]);
     preguntasActuales = preguntasMezcladas.slice(0, 5); // Selecciona 5 preguntas aleatorias
@@ -382,9 +412,9 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   let cartasGeneradas = [];
-  let cartasReveladas = []; // NUEVO: Array para mantener las cartas reveladas
+  let cartasReveladas = []; // Array para mantener las cartas reveladas
 
-  // NUEVO: Función para seleccionar curiosidades aleatorias
+  // Función para seleccionar curiosidades aleatorias
   function seleccionarCuriosidadesAleatorias() {
     const curiosidadesMezcladas = mezclarArray([...bancoCuriosidades]);
     curiosidadesActuales = curiosidadesMezcladas.slice(0, 10); // Selecciona 10 curiosidades
@@ -400,7 +430,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Selecciona nuevas curiosidades aleatorias
     seleccionarCuriosidadesAleatorias();
     
-    for (let i = 0; i < 4; i++) { // AMPLIADO: 4 cartas iniciales en lugar de 3
+    for (let i = 0; i < 4; i++) { // 4 cartas iniciales
       generarNuevaCarta();
     }
   }
@@ -420,7 +450,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     carta.dataset.curiosidad = curiosidadAleatoria;
     
-    // CORREGIDO: Establece la imagen de fondo correctamente
+    // Establece la imagen de fondo correctamente
     carta.style.backgroundImage = "url('../public/img/carta-rascar.png')";
     carta.style.backgroundSize = "cover";
     carta.style.backgroundPosition = "center";
@@ -433,42 +463,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function rascarCarta(carta) {
     const resultadoRasca = document.getElementById("resultado-rasca");
-    
+  
     if (pepitas >= 2 && !carta.classList.contains("revelada")) {
       pepitas -= 2;
       actualizarContadorPepitas();
-
+  
       carta.classList.add("revelada");
-      carta.textContent = carta.dataset.curiosidad;
-      
-      // NUEVO: Agrega la carta a las reveladas para mantenerla visible
+  
+      const contenido = document.createElement("div");
+      contenido.classList.add("contenido-carta");
+      contenido.textContent = carta.dataset.curiosidad;
+      carta.appendChild(contenido);
+  
       cartasReveladas.push({
         elemento: carta,
         curiosidad: carta.dataset.curiosidad
       });
-
+  
       reproducirSonido(sonidos.oro);
-
+  
       if (resultadoRasca) {
         resultadoRasca.innerHTML = `<strong>¡Descubierto!</strong><br>${carta.dataset.curiosidad}`;
       }
-
-      // MODIFICADO: Las cartas ya no desaparecen, se mantienen reveladas
+  
       actualizarEstadoBotones();
-      
-      // Genera una nueva carta después de un tiempo para mantener siempre cartas disponibles
+  
       setTimeout(() => {
         if (cartasGeneradas.filter(c => !c.classList.contains("revelada")).length < 2) {
           generarNuevaCarta();
         }
       }, 1000);
-      
     } else if (pepitas < 2) {
       if (resultadoRasca) {
-        resultadoRasca.innerHTML = "<strong>❌ Necesitas al menos 2 pepitas para rascar una carta.</strong>";
+        resultadoRasca.innerHTML = "<strong>❌ Necesitas al menos 3 pepitas para rascar una carta.</strong>";
       }
     }
   }
+  
 
   if (btnRascar) {
     btnRascar.addEventListener("click", () => {
@@ -479,7 +510,7 @@ document.addEventListener("DOMContentLoaded", () => {
         rascarCarta(cartaNoRevelada);
       } else if (pepitas < 2) {
         if (resultadoRasca) {
-          resultadoRasca.innerHTML = "<strong>❌ Necesitas al menos 2 pepitas para rascar una carta.</strong>";
+          resultadoRasca.innerHTML = "<strong>❌ Necesitas al menos 3 pepitas para rascar una carta.</strong>";
         }
       } else {
         if (resultadoRasca) {
@@ -494,7 +525,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (pepitasEl) {
       pepitasEl.innerText = pepitas;
       
-      // NUEVO: Animación del contador cuando aumentan las pepitas
+      // Animación del contador cuando aumentan las pepitas
       pepitasEl.parentElement.classList.add("contador-animado");
       setTimeout(() => {
         pepitasEl.parentElement.classList.remove("contador-animado");
@@ -505,7 +536,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function actualizarEstadoBotones() {
     if (btnRascar) {
       btnRascar.disabled = pepitas < 2;
-      btnRascar.textContent = `Rascar Carta (2 pepitas) ${pepitas >= 2 ? '✨' : '❌'}`;
+      btnRascar.textContent = `Rascar Carta (3 pepitas) ${pepitas >= 3 ? '✨' : '❌'}`;
     }
     
     cartasGeneradas.forEach(carta => {
@@ -522,6 +553,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  
 
   // --- Inicialización ---
   cargarQuiz();
