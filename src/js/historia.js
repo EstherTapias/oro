@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let curiosidadesActuales = []; // Curiosidades seleccionadas aleatoriamente para las cartas
 
   // --- REFERENCIAS AL DOM ---
-  const pepitasEl = document.getElementById("pepitas");
-  const contenedor = document.getElementById("quiz-container");
-  const resultado = document.getElementById("resultado");
-  const zonaJuego = document.getElementById("zona-juego");
-  const btnRascar = document.getElementById("btn-rascar");
-  const btnResetExcavacion = document.getElementById("btn-reset-excavacion");
-  const cartasContainer = document.getElementById("cartas-container");
+  const pepitasEl = document.getElementById("pepitas");// Elemento que muestra el contador de pepitas
+  const contenedor = document.getElementById("quiz-container");// Contenedor del quiz
+  const resultado = document.getElementById("resultado");// Contenedor de resultados del quiz
+  const zonaJuego = document.getElementById("zona-juego");// Zona de excavación
+  const btnRascar = document.getElementById("btn-rascar");// Botón para rascar cartas
+  const btnResetExcavacion = document.getElementById("btn-reset-excavacion");// Botón para reiniciar excavación
+  const cartasContainer = document.getElementById("cartas-container"); // Contenedor de cartas rasca y gana
 
   
   // --- MAPA INTERACTIVO (Leaflet) ---
@@ -53,11 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- EFECTOS DE SONIDO ---
   const sonidos = {
-    correcto: new Audio("../public/sounds/correct.mp3"),
-    incorrecto: new Audio("../public/sounds/error.mp3"),
-    excavar: new Audio("../public/sounds/dig.mp3"),
-    oro: new Audio("../public/sounds/correct.mp3"),
-    piedra: new Audio("../public/sounds/stone.mp3")
+    correcto: new Audio("../public/sounds/correct.mp3"), // Sonido de respuesta correcta
+    incorrecto: new Audio("../public/sounds/error.mp3"), // Sonido de respuesta incorrecta
+    excavar: new Audio("../public/sounds/dig.mp3"), // Sonido de excavación
+    oro: new Audio("../public/sounds/correct.mp3"), // Sonido al encontrar oro
+    piedra: new Audio("../public/sounds/stone.mp3") // Sonido al encontrar piedra
   };
 
   // Función para reproducir un sonido (con manejo de errores)
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ]
     }
   ];
-
+  // Función para mezclar elementos de un array aleatoriamente
   function mezclarArray(arr) {
     return arr.sort(() => Math.random() - 0.5);
   }
@@ -194,12 +194,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function cargarQuiz() {
-    contenedor.innerHTML = "";
-    aciertos = 0;
+    contenedor.innerHTML = ""; // Limpia el contenedor
+    aciertos = 0; // Reinicia el contador de aciertos
     
     // Selecciona nuevas preguntas aleatorias cada vez que se carga el quiz
     seleccionarPreguntasAleatorias();
 
+    // Itera sobre cada pregunta y crea los elementos DOM
     preguntasActuales.forEach((q, i) => {
       const div = document.createElement("div");
       div.classList.add("pregunta");
@@ -208,8 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
       p.innerHTML = `<span class="numero-pregunta">${i + 1}.</span> ${q.pregunta}`;
       div.appendChild(p);
 
-      const respuestasAleatorias = mezclarArray([...q.respuestas]);
-
+      const respuestasAleatorias = mezclarArray([...q.respuestas]); // Mezcla las respuestas
+      // Crea botones para cada respuesta
       respuestasAleatorias.forEach(r => {
         const btn = document.createElement("button");
         btn.textContent = r.texto;
@@ -220,12 +221,13 @@ document.addEventListener("DOMContentLoaded", () => {
       contenedor.appendChild(div);
     });
   }
-
+  // Función que maneja la respuesta a una pregunta
   function responder(btn, correcta, div) {
     const botones = div.querySelectorAll("button");
-    botones.forEach(b => b.disabled = true);
+    botones.forEach(b => b.disabled = true); // Desactiva todos los botones
 
     if (correcta) {
+      // Respuesta correcta
       btn.style.backgroundColor = "#4caf50";
       btn.style.color = "white";
       btn.innerHTML = `✓ ${btn.textContent}`;
@@ -234,6 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
       actualizarContadorPepitas();
       reproducirSonido(sonidos.correcto);
     } else {
+      // Respuesta incorrecta
       btn.style.backgroundColor = "#f44336";
       btn.style.color = "white";
       btn.innerHTML = `✗ ${btn.textContent}`;
@@ -249,11 +252,11 @@ document.addEventListener("DOMContentLoaded", () => {
         respuestaCorrecta.innerHTML = `✓ ${respuestaCorrecta.textContent} (Correcta)`;
       }
     }
-
+    // Verifica si todas las preguntas han sido respondidas
     const respondidas = [...document.querySelectorAll(".pregunta")].filter(p =>
       [...p.querySelectorAll("button")].every(b => b.disabled)
     );
-
+    // Si todas las preguntas están respondidas, muestra el resultado final
     if (respondidas.length === preguntasActuales.length) {
       const porcentaje = Math.round((aciertos / preguntasActuales.length) * 100);
       let mensaje = `🎉 Acertaste ${aciertos} de ${preguntasActuales.length} preguntas (${porcentaje}%)`;
@@ -269,9 +272,9 @@ document.addEventListener("DOMContentLoaded", () => {
       resultado.innerText = mensaje;
     }
 
-    actualizarEstadoBotones();
+    actualizarEstadoBotones(); // Actualiza el estado de los botones
   }
-
+  // Event listener para reiniciar el quiz
   document.getElementById("btn-reset").addEventListener("click", () => {
     resultado.innerText = "";
     cargarQuiz(); // Carga nuevas preguntas aleatorias
@@ -279,20 +282,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --- Juego de Excavación ---
-  const totalBloques = 25; //  bloques 
-  let bloquesConPepitas = new Set();
-  let bloquesExcavados = new Set();
+  const totalBloques = 25; // Total de bloques en el juego de excavación
+  let bloquesConPepitas = new Set(); // Set que contiene los índices de bloques con pepitas
+  let bloquesExcavados = new Set(); // Set que contiene los índices de bloques excavados
 
+  // Función para inicializar el juego de excavación
   function inicializarExcavacion() {
-    zonaJuego.innerHTML = "";
-    bloquesConPepitas.clear();
-    bloquesExcavados.clear();
+    zonaJuego.innerHTML = ""; // Limpia la zona de juego
+    bloquesConPepitas.clear(); // Limpia los bloques con pepitas
+    bloquesExcavados.clear(); // Limpia los bloques excavados
     
-    // Más pepitas escondidas
+    // Genera aleatoriamente 8 bloques con pepitas
     while (bloquesConPepitas.size < 8) {
       bloquesConPepitas.add(Math.floor(Math.random() * totalBloques));
     }
 
+    // Crea todos los bloques del juego
     for (let i = 0; i < totalBloques; i++) {
       const bloque = document.createElement("div");
       bloque.className = "bloque";
@@ -303,22 +308,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+   // Función para excavar un bloque específico
   function excavarBloque(bloque, index) {
-    if (bloquesExcavados.has(index)) return;
+    if (bloquesExcavados.has(index)) return;  // Si ya está excavado, no hacer nada
 
-    bloquesExcavados.add(index);
+    bloquesExcavados.add(index); // Marca el bloque como excavado
     bloque.classList.add("excavado");
     
-    reproducirSonido(sonidos.excavar);
+    reproducirSonido(sonidos.excavar); // Reproduce sonido de excavación
 
+    // Timeout para simular el tiempo de excavación
     setTimeout(() => {
       if (bloquesConPepitas.has(index)) {
+        // Bloque contiene oro
         pepitas += 3; // Más pepitas por excavación exitosa
         actualizarContadorPepitas();
         bloque.style.backgroundImage = "url('../public/img/gold.png')";
         bloque.classList.add("oro-encontrado");
         reproducirSonido(sonidos.oro);
       } else {
+        // Bloque contiene piedra
         bloque.style.backgroundImage = "url('../public/img/stone-block.png')";
         reproducirSonido(sonidos.piedra);
       }
@@ -326,6 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   }
 
+  // Event listener para reiniciar la excavación
   if (btnResetExcavacion) {
     btnResetExcavacion.addEventListener("click", () => {
       inicializarExcavacion();
@@ -367,7 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "🦷 Los dientes de oro no solo son decorativos: el oro es biocompatible y antibacteriano."
   ];
 
-  let cartasGeneradas = [];
+  let cartasGeneradas = []; // Array que almacena las cartas generadas
   let cartasReveladas = []; // Array para mantener las cartas reveladas
 
   // Función para seleccionar curiosidades aleatorias
@@ -376,21 +386,23 @@ document.addEventListener("DOMContentLoaded", () => {
     curiosidadesActuales = curiosidadesMezcladas.slice(0, 10); // Selecciona 10 curiosidades
   }
 
+  // Función para generar las cartas iniciales
   function generarCartasIniciales() {
     if (!cartasContainer) return;
     
-    cartasContainer.innerHTML = "";
-    cartasGeneradas = [];
+    cartasContainer.innerHTML = ""; // Limpia el contenedor
+    cartasGeneradas = []; // Reinicia el array de cartas generadas
     cartasReveladas = []; // Limpia las cartas reveladas
     
     // Selecciona nuevas curiosidades aleatorias
     seleccionarCuriosidadesAleatorias();
     
-    for (let i = 0; i < 4; i++) { // 4 cartas iniciales
+    for (let i = 0; i < 4; i++) { // Genera 4 cartas iniciales
       generarNuevaCarta();
     }
   }
 
+  // Función para generar una nueva carta individual
   function generarNuevaCarta() {
     if (!cartasContainer || curiosidadesActuales.length === 0) return;
     
@@ -417,46 +429,52 @@ document.addEventListener("DOMContentLoaded", () => {
     cartasGeneradas.push(carta);
   }
 
+  // Función para rascar una carta específica
   function rascarCarta(carta) {
     const resultadoRasca = document.getElementById("resultado-rasca");
-  
+    // Verifica si el jugador tiene suficientes pepitas y la carta no está revelada
     if (pepitas >= 2 && !carta.classList.contains("revelada")) {
-      pepitas -= 2;
+      pepitas -= 2; // Resta el costo de rascar
       actualizarContadorPepitas();
   
-      carta.classList.add("revelada");
-  
+      carta.classList.add("revelada"); // Marca la carta como revelada
+      
+      // Crea el contenido de la carta
       const contenido = document.createElement("div");
       contenido.classList.add("contenido-carta");
       contenido.textContent = carta.dataset.curiosidad;
       carta.appendChild(contenido);
   
+      // Añade la carta a las reveladas
       cartasReveladas.push({
         elemento: carta,
         curiosidad: carta.dataset.curiosidad
       });
   
-      reproducirSonido(sonidos.oro);
+      reproducirSonido(sonidos.oro); // Reproduce sonido de éxito
   
+      // Muestra el resultado en el DOM
       if (resultadoRasca) {
         resultadoRasca.innerHTML = `<strong>¡Descubierto!</strong><br>${carta.dataset.curiosidad}`;
       }
   
       actualizarEstadoBotones();
   
+      // Genera una nueva carta si quedan pocas disponibles
       setTimeout(() => {
         if (cartasGeneradas.filter(c => !c.classList.contains("revelada")).length < 2) {
           generarNuevaCarta();
         }
       }, 1000);
     } else if (pepitas < 2) {
+      // No tiene suficientes pepitas
       if (resultadoRasca) {
         resultadoRasca.innerHTML = "<strong>❌ Necesitas al menos 3 pepitas para rascar una carta.</strong>";
       }
     }
   }
   
-
+  // Event listener para el botón de rascar
   if (btnRascar) {
     btnRascar.addEventListener("click", () => {
       const cartaNoRevelada = cartasGeneradas.find(carta => !carta.classList.contains("revelada"));
@@ -477,6 +495,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- Funciones auxiliares globales ---
+   // Función para actualizar el contador de pepitas en el DOM
   function actualizarContadorPepitas() {
     if (pepitasEl) {
       pepitasEl.innerText = pepitas;
@@ -489,12 +508,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Función para actualizar el estado de todos los botones según las pepitas disponibles
   function actualizarEstadoBotones() {
     if (btnRascar) {
       btnRascar.disabled = pepitas < 2;
       btnRascar.textContent = `Rascar Carta (3 pepitas) ${pepitas >= 3 ? '✨' : '❌'}`;
     }
     
+    // Actualiza el estado visual de las cartas
     cartasGeneradas.forEach(carta => {
       if (!carta.classList.contains("revelada")) {
         if (pepitas >= 2) {
@@ -512,10 +533,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
   // --- Inicialización ---
-  cargarQuiz();
-  inicializarExcavacion();
-  generarCartasIniciales();
-  actualizarEstadoBotones();
+  cargarQuiz(); // Carga el quiz inicial
+  inicializarExcavacion(); // Inicializa el juego de excavación
+  generarCartasIniciales(); // Genera las cartas iniciales
+  actualizarEstadoBotones(); // Actualiza el estado de los botones
   
   // Mensaje de bienvenida
   setTimeout(() => {
@@ -523,4 +544,8 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("🌟 ¡Bienvenido al mundo del oro! 🌟\n\nResponde el quiz y excava para ganar pepitas de oro.\nUsa las pepitas para descubrir curiosidades fascinantes.\n\n¡Que comience la aventura! ⛏️💰");
     }
   }, 1000);
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  runLogoAnimation();
 });
