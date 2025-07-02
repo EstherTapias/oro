@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnResetExcavacion = document.getElementById("btn-reset-excavacion");// Botón para reiniciar el juego de excavación
   const cartasContainer = document.getElementById("cartas-container"); // Div contenedor donde se muestran las cartas rasca y gana
 
-  
+
   // --- MAPA INTERACTIVO (Leaflet) ---
   // Inicializa un mapa interactivo usando la librería Leaflet
   const mapa = L.map("mapa").setView([20, 0], 2); // Crea el mapa centrado en coordenadas [latitud, longitud] con zoom nivel 2
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   productores.forEach(p => {
     // Crea un marcador en las coordenadas del país
     L.marker(p.coords).addTo(mapa) // Añade el marcador al mapa
-    .bindPopup(`<strong>${p.pais}</strong><br>${p.info}`); // Asocia un popup con información que aparece al hacer clic
+      .bindPopup(`<strong>${p.pais}</strong><br>${p.info}`); // Asocia un popup con información que aparece al hacer clic
   });
 
   // Añade funcionalidad al botón para expandir el mapa a pantalla completa
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ]
     }
   ];
-  
+
   // Función para mezclar elementos de un array de forma aleatoria usando el algoritmo Fisher-Yates
   function mezclarArray(arr) {
     // Math.random() - 0.5 produce valores entre -0.5 y 0.5, creando orden aleatorio
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function cargarQuiz() {
     contenedor.innerHTML = ""; // Limpia todo el contenido previo del contenedor
     aciertos = 0; // Resetea el contador de aciertos para el nuevo quiz
-    
+
     // Selecciona nuevas preguntas aleatorias cada vez que se carga el quiz
     seleccionarPreguntasAleatorias();
 
@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
       contenedor.appendChild(div); // Añade toda la pregunta al contenedor principal
     });
   }
-  
+
   // Función que maneja la lógica cuando el usuario responde una pregunta
   function responder(btn, correcta, div) {
     const botones = div.querySelectorAll("button"); // Obtiene todos los botones de esta pregunta
@@ -255,9 +255,9 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.style.color = "white"; // Texto blanco para contraste
       btn.innerHTML = `✗ ${btn.textContent}`; // Añade X al texto
       reproducirSonido(sonidos.incorrecto); // Reproduce sonido de error
-      
+
       // Busca y resalta la respuesta correcta
-      const respuestaCorrecta = [...botones].find(b => 
+      const respuestaCorrecta = [...botones].find(b =>
         // Busca el botón que corresponde a la respuesta correcta
         preguntasActuales.find(p => p.respuestas.some(r => r.texto === b.textContent && r.correcta))
       );
@@ -267,18 +267,18 @@ document.addEventListener("DOMContentLoaded", () => {
         respuestaCorrecta.innerHTML = `✓ ${respuestaCorrecta.textContent} (Correcta)`; // Marca como correcta
       }
     }
-    
+
     // Verifica si todas las preguntas han sido respondidas
     const respondidas = [...document.querySelectorAll(".pregunta")].filter(p =>
       // Filtra preguntas donde todos los botones están desactivados (respondidas)
       [...p.querySelectorAll("button")].every(b => b.disabled)
     );
-    
+
     // Si todas las preguntas están respondidas, muestra el resultado final
     if (respondidas.length === preguntasActuales.length) {
       const porcentaje = Math.round((aciertos / preguntasActuales.length) * 100); // Calcula porcentaje
       let mensaje = `🎉 Acertaste ${aciertos} de ${preguntasActuales.length} preguntas (${porcentaje}%)`;
-      
+
       // Personaliza el mensaje según el rendimiento
       if (porcentaje >= 80) {
         mensaje += "\n🏆 ¡Excelente! Eres todo un experto en oro.";
@@ -287,13 +287,13 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         mensaje += "\n📚 Sigue aprendiendo, ¡puedes mejorar!";
       }
-      
+
       resultado.innerText = mensaje; // Muestra el mensaje final
     }
 
     actualizarEstadoBotones(); // Actualiza el estado de los botones del juego
   }
-  
+
   // Event listener para el botón de reiniciar quiz
   document.getElementById("btn-reset").addEventListener("click", () => {
     resultado.innerText = ""; // Limpia el resultado anterior
@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
     zonaJuego.innerHTML = ""; // Limpia todos los bloques anteriores del DOM
     bloquesConPepitas.clear(); // Limpia el set de bloques con pepitas
     bloquesExcavados.clear(); // Limpia el set de bloques excavados
-    
+
     // Genera aleatoriamente 8 posiciones que contendrán oro
     while (bloquesConPepitas.size < 8) {
       // Añade índices aleatorios hasta tener 8 bloques con oro
@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < totalBloques; i++) {
       const bloque = document.createElement("div"); // Crea elemento div para el bloque
       bloque.className = "bloque"; // Asigna clase CSS para estilos
-      bloque.style.backgroundImage = "url('../public/img/dirt-block.png')"; // Imagen de tierra sin excavar
+      bloque.style.backgroundImage = "url('./public/img/dirt-block.png')"; // Imagen de tierra sin excavar
       bloque.style.backgroundSize = "cover"; // Ajusta la imagen al tamaño del bloque
       // Asigna evento de click para excavar este bloque específico
       bloque.addEventListener("click", () => excavarBloque(bloque, i));
@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bloquesExcavados.add(index); // Marca este bloque como excavado
     bloque.classList.add("excavado"); // Añade clase CSS para efectos visuales
-    
+
     reproducirSonido(sonidos.excavar); // Reproduce sonido de excavación inmediatamente
 
     // Timeout para simular el tiempo que toma excavar (efecto de anticipación)
@@ -345,12 +345,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Este bloque contiene oro
         pepitas += 3; // Otorga 3 pepitas por encontrar oro (más que el quiz)
         actualizarContadorPepitas(); // Actualiza el contador visual
-        bloque.style.backgroundImage = "url('../public/img/gold.png')"; // Cambia a imagen de oro
+        bloque.style.backgroundImage = "url('./public/img/gold.png')"; // Cambia a imagen de oro
         bloque.classList.add("oro-encontrado"); // Añade clase para efectos especiales
         reproducirSonido(sonidos.oro); // Reproduce sonido de éxito
       } else {
         // Este bloque contiene solo piedra
-        bloque.style.backgroundImage = "url('../public/img/stone-block.png')"; // Cambia a imagen de piedra
+        bloque.style.backgroundImage = "url('./public/img/stone-block.png')"; // Cambia a imagen de piedra
         reproducirSonido(sonidos.piedra); // Reproduce sonido de piedra
       }
       actualizarEstadoBotones(); // Actualiza estado de botones después de la excavación
@@ -412,14 +412,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // Función para generar el conjunto inicial de cartas al cargar el juego
   function generarCartasIniciales() {
     if (!cartasContainer) return; // Verificación de seguridad: sale si el contenedor no existe
-    
+
     cartasContainer.innerHTML = ""; // Limpia el contenedor de cualquier carta previa
     cartasGeneradas = []; // Reinicia el array de cartas generadas para empezar limpio
     cartasReveladas = []; // Limpia el registro de cartas reveladas para nueva sesión
-    
+
     // Selecciona nuevas curiosidades aleatorias para esta sesión
     seleccionarCuriosidadesAleatorias();
-    
+
     for (let i = 0; i < 4; i++) { // Bucle que genera 4 cartas iniciales para dar opciones al jugador
       generarNuevaCarta();
     }
@@ -428,28 +428,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // Función para crear una nueva carta individual
   function generarNuevaCarta() {
     if (!cartasContainer || curiosidadesActuales.length === 0) return; // Verifica que existe contenedor y hay curiosidades disponibles
-    
+
     const carta = document.createElement("div"); // Crea un nuevo elemento div que será la carta
     carta.className = "carta"; // Asigna la clase CSS 'carta' para aplicar estilos
-    
+
     // Selecciona una curiosidad aleatoria de las disponibles en el array actual
     const curiosidadIndex = Math.floor(Math.random() * curiosidadesActuales.length);
     const curiosidadAleatoria = curiosidadesActuales[curiosidadIndex];
-    
+
     // Remueve la curiosidad seleccionada del array para evitar repeticiones futuras
     curiosidadesActuales.splice(curiosidadIndex, 1);
-    
+
     // Almacena la curiosidad en el atributo data de la carta para acceso posterior
     carta.dataset.curiosidad = curiosidadAleatoria;
-    
+
     // Establece la imagen de fondo que simula una carta sin rascar
-    carta.style.backgroundImage = "url('../public/img/carta-rascar.png')";
+    carta.style.backgroundImage = "url('./public/img/carta-rascar.png')";
     carta.style.backgroundSize = "cover"; // Hace que la imagen cubra todo el elemento
     carta.style.backgroundPosition = "center"; // Centra la imagen de fondo
-    
+
     // Añade evento click que permitirá rascar la carta cuando se haga clic
     carta.addEventListener("click", () => rascarCarta(carta));
-    
+
     cartasContainer.appendChild(carta); // Inserta la carta en el contenedor del DOM
     cartasGeneradas.push(carta); // Registra la carta en el array de control global
   }
@@ -461,30 +461,30 @@ document.addEventListener("DOMContentLoaded", () => {
     if (pepitas >= 3 && !carta.classList.contains("revelada")) {
       pepitas -= 3; // Descuenta 3 pepitas como costo del rascado
       actualizarContadorPepitas(); // Actualiza visualmente el contador de pepitas
-  
+
       carta.classList.add("revelada"); // Marca la carta como revelada para evitar rascado múltiple
-      
+
       // Crea el contenedor que mostrará el texto de la curiosidad
       const contenido = document.createElement("div");
       contenido.classList.add("contenido-carta"); // Aplica clase CSS para estilos del contenido
       contenido.textContent = carta.dataset.curiosidad; // Inserta el texto de la curiosidad
       carta.appendChild(contenido); // Añade el contenido a la carta
-  
+
       // Registra la carta rascada en el array de cartas reveladas
       cartasReveladas.push({
         elemento: carta, // Referencia al elemento DOM de la carta
         curiosidad: carta.dataset.curiosidad // Texto de la curiosidad revelada
       });
-  
+
       reproducirSonido(sonidos.oro); // Reproduce sonido de éxito/recompensa
-  
+
       // Muestra mensaje de éxito con la curiosidad descubierta en el área de resultados
       if (resultadoRasca) {
         resultadoRasca.innerHTML = `<strong>¡Descubierto!</strong><br>${carta.dataset.curiosidad}`;
       }
-  
+
       actualizarEstadoBotones(); // Actualiza el estado de todos los botones según pepitas restantes
-  
+
       // Programa la generación de una nueva carta si quedan pocas disponibles
       setTimeout(() => {
         // Cuenta cartas no reveladas y genera nueva si hay menos de 2 disponibles
@@ -499,14 +499,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-  
+
   // Event listener para el botón de rascar cartas
   if (btnRascar) {
     btnRascar.addEventListener("click", () => {
       // Busca la primera carta disponible (no revelada) en el array
       const cartaNoRevelada = cartasGeneradas.find(carta => !carta.classList.contains("revelada"));
       const resultadoRasca = document.getElementById("resultado-rasca"); // Elemento para mostrar mensajes
-      
+
       // Si hay carta disponible y suficientes pepitas, procede a rascar
       if (cartaNoRevelada && pepitas >= 3) {
         rascarCarta(cartaNoRevelada);
@@ -525,11 +525,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- Funciones auxiliares globales ---
-   // Función para actualizar el contador de pepitas en la interfaz
+  // Función para actualizar el contador de pepitas en la interfaz
   function actualizarContadorPepitas() {
     if (pepitasEl) { // Verifica que el elemento contador existe en el DOM
       pepitasEl.innerText = pepitas; // Actualiza el texto con el número actual de pepitas
-      
+
       // Añade animación visual al contador cuando cambian las pepitas
       pepitasEl.parentElement.classList.add("contador-animado");
       setTimeout(() => {
@@ -544,7 +544,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btnRascar.disabled = pepitas < 3; // Deshabilita el botón si no hay suficientes pepitas
       btnRascar.textContent = `Rascar Carta (3 pepitas) ${pepitas >= 3 ? '✨' : '❌'}`; // Actualiza texto con indicador visual
     }
-    
+
     // Recorre todas las cartas generadas para actualizar su estado visual
     cartasGeneradas.forEach(carta => {
       if (!carta.classList.contains("revelada")) { // Solo modifica cartas no reveladas
@@ -560,14 +560,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-  
+
 
   // --- Inicialización del juego ---
   cargarQuiz(); // Inicializa el sistema de quiz del juego
   inicializarExcavacion(); // Inicializa el minijuego de excavación
   generarCartasIniciales(); // Genera las primeras 4 cartas del juego
   actualizarEstadoBotones(); // Establece el estado inicial de todos los botones
-  
+
   // Mensaje de bienvenida que se muestra al inicio del juego
   setTimeout(() => {
     if (pepitas === 0) { // Solo muestra el mensaje si el jugador empieza sin pepitas
@@ -578,5 +578,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Event listener que se ejecuta cuando el DOM está completamente cargado
 window.addEventListener('DOMContentLoaded', () => {
-  runLogoAnimation(); // Ejecuta la animación del logo de inicio
+  runLogoAnimationForIndex(); // Ejecuta la animación del logo de inicio
 });
