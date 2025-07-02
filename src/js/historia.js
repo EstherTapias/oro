@@ -60,11 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- EFECTOS DE SONIDO ---
   // Crea objetos Audio para los diferentes sonidos del juego
   const sonidos = {
-    correcto: new Audio("../../public/sounds/correct.mp3"), // Sonido que se reproduce cuando se acierta una pregunta
-    incorrecto: new Audio("../public/sounds/error.mp3"), // Sonido que se reproduce cuando se falla una pregunta
-    excavar: new Audio("../public/sounds/dig.mp3"), // Sonido que se reproduce al hacer clic en un bloque para excavar
-    oro: new Audio("../public/sounds/correct.mp3"), // Sonido que se reproduce al encontrar oro
-    piedra: new Audio("../public/sounds/stone.mp3") // Sonido que se reproduce al encontrar piedra
+    correcto: new Audio("./public/sounds/correct.mp3"), // Sonido que se reproduce cuando se acierta una pregunta
+    incorrecto: new Audio("./public/sounds/error.mp3"), // Sonido que se reproduce cuando se falla una pregunta
+    excavar: new Audio("./public/sounds/dig.mp3"), // Sonido que se reproduce al hacer clic en un bloque para excavar
+    oro: new Audio("./public/sounds/correct.mp3"), // Sonido que se reproduce al encontrar oro
+    piedra: new Audio("./public/sounds/stone.mp3") // Sonido que se reproduce al encontrar piedra
   };
 
   // Función para reproducir un sonido de forma segura (con manejo de errores)
