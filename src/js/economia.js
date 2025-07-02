@@ -12,8 +12,6 @@ fetch('../index.html')
     }
   });
 
-/* Logo */
-
 
 /*Buttons Yes and No */
 const chartSound = new Audio('../public/sounds/cash-register-fake-88639.mp3');
@@ -22,9 +20,9 @@ function playSoundChart() {
   chartSound.play();
 }
 const videoContainer = document.getElementById('video-container');
-console.log(videoContainer);
+//console.log(videoContainer);
 const videoMP4 = document.getElementById('videoMP4');
-console.log(videoMP4);
+//console.log(videoMP4);
 function changeStatusYes() {
   statusChart = document.querySelector(".chart-visibility");
   statusVideo = document.querySelector(".video-visibility");
@@ -78,13 +76,13 @@ const btnNo = document.getElementById("btn-no");
 btnNo.addEventListener("click", changeStatusNo);
 
 
-// data chart
+//database del chart
 const dateReserve = {
-  countries: ['Estados Unidos', 'Alemania', 'Itália', 'Portugal', 'Espanha', 'Brasil', 'Paraguai', 'Peru'],
+  countries: ['EE UU', 'Alemania', 'Itália', 'Portugal', 'Espanha', 'Brasil', 'Paraguai', 'Peru'],
   tons: [8133, 3351, 2452, 383, 28, 130, 8, 35]
 };
 
-// chart
+//chart
 let chartInstance = null;
 function renderChart() {
   const contenador = document.getElementById("gold-reserves-chart");
@@ -132,10 +130,7 @@ function renderChart() {
               display: false
             },
             ticks: {
-              stepSize: 500,
-              font: {
-                size: 16
-              }
+              display: false
             }
           }
         }
@@ -154,19 +149,6 @@ imgChest.addEventListener('click', () => {
     imgChest.src = '../public/img/chestclose.svg';
   }
 });
-
-/*
-const images = ['../public/img/chestclose.svg', '../public/img/chestopen.svg'];
-let currentPhotoIndex = 0;
-
-setInterval(() => {
-  currentPhotoIndex = currentPhotoIndex + 1;
-  if (currentPhotoIndex >= images.length) {
-    currentPhotoIndex = 0;
-  }
-  imgChest.src = images[currentPhotoIndex];
-}, 2000);*/
-
 
 //Particles background
 particlesJS('particles-js', {
@@ -203,7 +185,6 @@ particlesJS('particles-js', {
 });
 
 //Modal
-
 const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modal-title");
 const modalDescription = document.getElementById("modal-description");
@@ -215,7 +196,7 @@ function playSoundCountry() {
   coinSoundMario.play();
 }
 
-
+//texto que se apresenta dentro do modal
 const modalContents = {
   "Estados Unidos": "Guardan la mayoría de su oro en Fort Knox, que es como un búnker ultra blindado en Kentucky.",
   "Alemania": "Parte del oro está en Fráncfort, pero también tienen reservas en Londres y Nueva York.",
@@ -255,13 +236,12 @@ window.addEventListener("click", (event) => {
 });
 
 
-//Rain coins with click modal
+//lógica de la lluvia de monedas
 function rainCoins() {
   const container = document.getElementById("coin-rain-container");
   const coinsAlreadyExist = container.querySelectorAll(".golde-coin");
   for (let index = coinsAlreadyExist - 1; index >= 0; index--) {
     coinsAlreadyExist[index].remove();
-
   }
 
   const totalCoins = 30;

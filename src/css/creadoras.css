@@ -1,166 +1,183 @@
-
-.version-nav a {
-  display: inline-block;        /* Mostrar enlaces en línea, pero respetando padding y margen */
-  margin: 0 0.5rem;             /* Margen horizontal para separar enlaces */
-  padding: 0.5rem 1rem;         /* Espaciado interno */
-  background: #ffffff;          /* Fondo blanco */
-  color: #1b3b2f;              /* Color de texto */
-  text-decoration: none;        /* Sin subrayado */
-  border-radius: 8px;           /* Bordes redondeados */
-  transition: all 0.3s ease;    /* Transición suave para efectos hover */
+body {
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  background: #fffbe6;
+  display: grid;
+  min-height: 100dvh;
 }
 
-.version-nav a:hover {
-  background: #e8f5e8;          /* Cambio de fondo al pasar el mouse */
-  transform: translateY(-2px);  /* Mueve el enlace 2px hacia arriba */
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #5a4100;
+  margin-top: 5rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
-.version-nav a.active {
-  background: #9bb99b;          /* Fondo verde para enlace activo */
-  font-weight: bold;            /* Texto en negrita */
-  box-shadow: 0 0 5px rgba(0, 50, 0, 0.2); /* Sombra para destacar */
+.title .highlight {
+  font-weight: 700;
+  color: #3c2c00;
 }
 
-/* Main toma todo el espacio restante para centrar contenido */
+.title .gold {
+  font-weight: 800;
+  color: #f9a825;
+}
+
+.title-line {
+  width: 5rem;
+  height: 0.25rem;
+  background: #f9a825;
+  margin: 0.75rem auto 0;
+  border-radius: 0.25rem;
+}
+
 main {
-  flex: 1;                     /* Ocupa todo el espacio disponible */
-  display: flex;               /* Flexbox para centrar contenido */
-  justify-content: center;     /* Centra horizontalmente */
-  align-items: center;         /* Centra verticalmente */
-  padding: 2rem;               /* Espacio interno */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: 3.73rem 0;
+
 }
 
 /* Contenedor Grid centrado y con ancho máximo */
 .cards-container {
-  display: grid;                                  /* Usa CSS Grid */
-  gap: 2rem;                                     /* Espacio entre elementos del grid */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas adaptativas con mínimo 250px */
-  width: 100%;                                   /* Ancho completo del contenedor padre */
-  max-width: 1100px;                             /* Máximo ancho para evitar que sea muy grande */
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 68.75rem;
+  gap: 4rem;
+  justify-content: center;
 }
 
 /* Estructura general de la tarjeta */
 .card {
-  perspective: 1200px;      /* Profundidad para efecto 3D */
-  height: 380px;            /* Altura fija */
-  cursor: pointer;          /* Cambia cursor a mano al pasar por la tarjeta */
+  perspective: 1200px;
+  height: 350px;
+  width: 230px;
+  cursor: pointer;
+
 }
 
 .card-inner {
-  position: relative;       /* Posición relativa para controlar posición interna */
-  width: 100%;              /* Ocupa todo el ancho de la tarjeta */
-  height: 100%;             /* Ocupa toda la altura de la tarjeta */
-  transition: transform 0.8s ease-in-out; /* Transición suave para la rotación */
-  transform-style: preserve-3d;          /* Mantiene el efecto 3D para hijos */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+  transform-style: preserve-3d;
 }
 
 .card:hover .card-inner {
-  transform: rotateY(180deg); /* Rota la tarjeta 180 grados en eje Y al pasar el cursor */
+  transform: rotateY(180deg);
 }
 
 /* Caras frontal y trasera */
 .card-front,
 .card-back {
-  position: absolute;        /* Se superponen exactamente */
-  width: 100%;               /* Ancho completo de la tarjeta */
-  height: 100%;              /* Altura completa */
-  padding: 1rem;             /* Espacio interno */
-  border-radius: 16px;       /* Bordes redondeados */
-  backface-visibility: hidden; /* Oculta el reverso cuando no está visible */
-  display: flex;             /* Flexbox para alinear contenido */
-  flex-direction: column;    /* En columna */
-  align-items: center;       /* Centra horizontalmente */
-  justify-content: center;   /* Centra verticalmente */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  text-align: center;        /* Texto centrado */
-  background: #ffffff;       /* Fondo blanco */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .card-front {
-  background:rgba(233, 209, 102, 0.932);      /* Fondo verde claro para el frente */
+  background: #f3e5ab;
+  color: #3e2f00;
+  box-shadow: 0 3px rgba(31, 24, 3, 0.2);
 }
 
+
 .card-back {
-  background: #b2dfdb;       /* Fondo diferente para el reverso */
-  transform: rotateY(180deg); /* Voltea la cara trasera para el efecto 3D */
-  position: relative;        /* Para colocar elementos dentro */
-  padding-bottom: 2rem;      /* Espacio extra abajo para el botón */
+  background: #fffbe6;
+  color: #3e2723;
+  transform: rotateY(180deg);
+  position: relative;
+  padding-bottom: 2rem;
+
 }
 
 /* Imágenes */
-.card-front img,
-.card-back img {
-  max-width: 100%;           /* No excede el ancho del contenedor */
-  height: 160px;             /* Altura fija para imágenes */
-  object-fit: cover;         /* La imagen cubre todo el espacio, recortando si es necesario */
-  border-radius: 10px;       /* Bordes redondeados en imágenes */
-  margin-bottom: 0.5rem;     /* Espacio debajo de la imagen */
-}
-
-.vertical-image {
-  width: auto;               /* Ancho automático para mantener proporción */
-  max-height: 160px;         /* Altura máxima */
-  object-fit: contain;       /* Imagen se ajusta dentro sin recortar */
-  margin: 25px auto 10px;    /* Márgenes arriba, auto centrar horizontal, abajo */
-  display: block;            /* Que se comporte como bloque para centrar */
-  border-radius: 10px;       /* Bordes redondeados */
+.card-front img {
+  background: linear-gradient(135deg, #f9e8a2, #e1c370);
+  max-width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
 }
 
 /* Tipografía */
 h1 {
-  font-size: 2rem;           /* Tamaño grande para títulos */
-  color: rgb(161, 106, 42);            /* Verde oscuro */
-  margin-bottom: 0.5rem;     /* Espacio debajo */
+  font-size: 2rem;
+  color: rgb(161, 106, 42);
+  margin-bottom: 0.5rem;
 }
 
-h2 {
-  font-size: 1.4rem;         /* Tamaño medio para subtítulos */
-  margin-top: 0.5rem;        /* Margen arriba */
-  color: rgb(161, 106, 42);    /* Verde */
+.card h2 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  color: rgb(161, 106, 42);
 }
 
-h3 {
-  font-size: 1.2rem;         /* Tamaño menor para sub-subtítulos */
-  margin-bottom: 0.5rem;     /* Margen debajo */
-  color:rgb(161, 106, 42);  /* Verde */
+.card h3 {
+  font-size: 1.2rem;
+  color: rgb(161, 106, 42);
 }
 
-p {
-  font-size: 0.95rem;        /* Tamaño de texto normal */
-  color: black;       /* Color de texto */
+.card p {
+  font-size: 0.875rem;
+  font-weight: 400;
+
+}
+
+.card-back-descr {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 1rem;
+  overflow: auto;
+  overflow-x: hidden;
+  text-align: left;
+
 }
 
 /* Efecto al pasar el cursor */
 .card:hover {
-  filter: brightness(1.03);  /* Aumenta ligeramente el brillo */
-  box-shadow: 0 0 15px rgba(100, 255, 200, 0.2); /* Sombra suave verde */
-  transform: scale(1.25);    /* Escala la tarjeta 25% más grande */
-  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+  filter: brightness(1.03);
+  box-shadow: 0 0 15px rgba(100, 255, 200, 0.2);
+  transform: scale(1.25);
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Botón Saber más */
-.learn-more {
-  position: absolute;        /* Posición absoluta dentro de la tarjeta */
-  bottom: 0.6rem;            /* A 0.6rem del fondo */
-  right: 0.6rem;             /* A 0.6rem del lado derecho */
-  padding: 0;                /* Sin padding */
-  background: none;          /* Sin fondo */
-  border: none;              /* Sin borde */
-  color: #1b3b2f;            /* Color de texto */
-  text-decoration: none;     /* Sin subrayado */
-  font-size: 0.78rem;        /* Tamaño pequeño */
-  font-weight: 600;          /* Texto semi negrita */
-  cursor: pointer;           /* Cursor mano para indicar clic */
+.card-back a {
+  margin: 5px 0px;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #3e2f00;
+  background-color: #f9a825;
+  transition: background-color 0.3s ease;
 }
 
-.learn-more:hover {
-  text-decoration: underline; /* Subrayado al pasar el cursor */
+.card-back a:hover {
+  background-color: #1f1803;
+  color: #fff5d8;
 }
 
 
 
 /* Media Queries para Responsividad */
 @media (max-width: 600px) {
+
   /* Ajusta el tamaño de la fuente de los títulos h1 para pantallas pequeñas */
   h1 {
     font-size: 1.5rem;
@@ -168,22 +185,22 @@ p {
 
   /* Estilos para la tarjeta (card) en pantallas pequeñas */
   .card {
-    height: 350px; /* altura fija para las tarjetas, igual que la versión click */
-    max-width: 350px; /* ancho máximo igual a la altura para evitar que se estiren */
-    margin: 0 auto; /* centra horizontalmente cada tarjeta */
+    height: 350px;
+    max-width: 350px;
+    margin: 0 auto;
   }
 
-  /* Reduce el padding interno de los frentes y reversos de las tarjetas */
+
   .card-front,
   .card-back {
     padding: 0.8rem;
   }
 
-  /* Ajusta la altura de las imágenes en las tarjetas para que sean más pequeñas */
   .card-front img,
   .card-back img,
   .vertical-image {
-    height: 120px; /* igual que la versión click */
+    height: 120px;
+    /* igual que la versión click */
   }
 
   /* Cambia la navegación de versiones para que cada enlace ocupe una línea y tenga margen vertical */
@@ -199,10 +216,10 @@ p {
 
   /* Ajustes para el contenedor de tarjetas */
   .cards-container {
-    gap: 1.5rem; /* reduce el espacio entre tarjetas */
-    grid-template-columns: 1fr; /* una columna para que las tarjetas se apilen verticalmente */
-    max-width: 360px; /* limita el ancho máximo para que el contenedor no sea muy ancho */
-    margin: 0 auto; /* centra horizontalmente el contenedor */
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
   }
 
   /* Elimina transformaciones y transiciones en las tarjetas al pasar el cursor en móviles */
@@ -211,11 +228,3 @@ p {
     transition: none;
   }
 }
-
-
-
-
-
-
-  
-  
