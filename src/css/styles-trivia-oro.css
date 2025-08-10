@@ -1,16 +1,30 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Segoe UI", sans-serif;
   background-color: #fff8e1;
   color: #333;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
 }
 
-header {
+section {
+  margin: 40px;
+}
+
+.title {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 20px;
+  gap: 20px;
 }
 
 h1 {
