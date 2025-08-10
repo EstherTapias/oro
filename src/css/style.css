@@ -177,15 +177,20 @@ footer a {
         background-color: #1f1803;
         border-radius: 8px;
         padding: 10px 0;
-        width: 200px;
+        width: 300px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         z-index: 9999;
     }
 
+    .menu li {
+        width: 100%;
+        text-align: center;
+        margin: 0px 20px;
+    }
+
     .menu li a {
-        padding: 12px 20px;
-        border-radius: 6px;
-        border-bottom: 1px solid #444;
+        display: block;
+        width: 100%;
     }
 
     .menu li:last-child a {
