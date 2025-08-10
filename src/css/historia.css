@@ -214,12 +214,15 @@ button:disabled {
   border: 3px solid #b8860b;
   box-shadow: 0 4px 16px rgba(212, 175, 55, 0.22);
   cursor: default;
+  overflow-y: auto;
 }
 
 .carta.revelada .contenido-curioso {
   opacity: 1;
   pointer-events: auto;
   z-index: 3;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .carta.revelada::before {
@@ -439,8 +442,6 @@ button:disabled {
 
 @media (max-width: 400px) {
   .carta {
-    width: 54px;
-    height: 75px;
     font-size: 0.7em;
   }
 }
