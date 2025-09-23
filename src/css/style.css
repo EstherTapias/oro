@@ -1,18 +1,24 @@
 /* Home button styles */
 .home-button {
+    position: fixed;      /* Se queda fijo aunque hagas scroll */
+    top: 10px;            /* Distancia desde el borde superior */
+    left: 10px;           /* Distancia desde el borde izquierdo */
+    
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 36px;
     height: 36px;
-    margin-left: 1rem;
+    margin-left: 0;       /* ⚠️ quitar margin-left para que no empuje hacia la derecha */
     background-color: #FF4700;
     color: #ffffff;
     border-radius: 8px;
     text-decoration: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    z-index: 1000;        /* Para que quede por encima del contenido */
 }
+
 
 .home-button i {
     font-size: 1rem;
