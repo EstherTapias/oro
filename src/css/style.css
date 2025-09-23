@@ -1,24 +1,39 @@
-/* Home button styles */
+
+/* Modificar el navbar para posicionamiento relativo */
+.header-nave {
+    background-color: #1f1803;
+    display: flex;
+    font-family: "Montserrat", sans-serif;
+    justify-content: center;
+    min-height: 200px;
+    align-items: center;
+    gap: 20px;
+    box-shadow: rgba(31, 24, 3, 0.24) 0px 6px 8px;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    margin-bottom: 40px;
+    position: relative; /* Añadir para posicionamiento absoluto del botón */
+}
+
+/* Home button styles - POSICIONAMIENTO ABSOLUTO */
 .home-button {
-    position: fixed;      /* Se queda fijo aunque hagas scroll */
-    top: 10px;            /* Distancia desde el borde superior */
-    left: 10px;           /* Distancia desde el borde izquierdo */
-    
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 36px;
     height: 36px;
-    margin-left: 0;       /* ⚠️ quitar margin-left para que no empuje hacia la derecha */
     background-color: #FF4700;
     color: #ffffff;
     border-radius: 8px;
     text-decoration: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    z-index: 1000;        /* Para que quede por encima del contenido */
+    /* Posicionamiento absoluto en esquina superior izquierda */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
 }
-
 
 .home-button i {
     font-size: 1rem;
@@ -232,14 +247,16 @@ footer a {
         display: flex;
     }
 }
-/* Mobile tweaks: keep size tappable */
-@media screen and (max-width: 768px) {
+/* Ajustes para mobile */
+@media (max-width: 768px) {
     .home-button {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
+        top: 15px;
+        left: 15px;
+        width: 32px;
+        height: 32px;
     }
+    
     .home-button i {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
 }
