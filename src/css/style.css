@@ -1,3 +1,28 @@
+/* Home button styles */
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-left: 1rem;
+    background-color: #FF4700;
+    color: #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.home-button i {
+    font-size: 1rem;
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    background-color: #e24000;
+}
 * {
     margin: 0;
     padding: 0;
@@ -199,5 +224,16 @@ footer a {
 
     #menu-toggle:checked+.menu-icon+.menu {
         display: flex;
+    }
+}
+/* Mobile tweaks: keep size tappable */
+@media screen and (max-width: 768px) {
+    .home-button {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    .home-button i {
+        font-size: 1.1rem;
     }
 }
